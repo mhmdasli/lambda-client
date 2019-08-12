@@ -1,0 +1,10 @@
+<h1 mat-dialog-title fxLayoutAlign="center">שעון נוכחות</h1>
+<div mat-dialog-content fxLayout fxLayoutGap="10px">
+  <p fxFlex="60%"> עוד לא ביצעת כניסה להיום.</p>
+  <input  matInput (click)="open()" value="{{currentTime}}">
+</div>
+<div fxLayoutAlign="center">
+  <button mat-button (click)="onNoClick()">בצע כניסה </button>
+</div>
+
+

@@ -1,0 +1,390 @@
+<div id="dashboard-analytics" class="page-layout blank">
+
+    <div class="main-widget">
+
+        <div class="position-relative p-24 blue-600"
+             fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="column" fxLayoutAlign="start start">
+                <span class="h2">מדד יציבות </span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <div class="py-8 px-12 border-radius-2 line-height-1 ml-8 cursor-pointer"
+                     (click)="widget1SelectedYear = '2016'"
+                     [ngClass]="{'blue-700': widget1SelectedYear === '2016'}">
+                    2016
+                </div>
+                <div class="py-8 px-12 border-radius-2 line-height-1 ml-8 cursor-pointer"
+                     (click)="widget1SelectedYear = '2017'"
+                     [ngClass]="{'blue-700': widget1SelectedYear === '2017'}">
+                    2017
+                </div>
+                <div class="py-8 px-12 border-radius-2 line-height-1 cursor-pointer"
+                     (click)="widget1SelectedYear = '2018'"
+                     [ngClass]="{'blue-700': widget1SelectedYear === '2018'}">
+                    2018
+                </div>
+            </div>
+        </div>
+
+        <div class="position-relative h-256 pb-16 blue-600">
+            <canvas baseChart
+                    [datasets]="widgets.widget1.datasets[widget1SelectedYear]"
+                    [labels]="widgets.widget1.labels"
+                    [colors]="widgets.widget1.colors"
+                    [options]="widgets.widget1.options"
+                    [chartType]="widgets.widget1.chartType">
+            </canvas>
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <div class="left ml-lg-32">
+
+            <div class="pb-24 font-size-18 font-weight-300">
+               מידע כללי
+            </div>
+
+            <div fxLayout="column" fxLayoutAlign="start"
+                 fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="start start">
+
+                <!-- Widget 2 -->
+                <div class="widget" fxFlex="100" fxFlex.gt-sm="33">
+
+                    <div class="fuse-card auto-width mb-32" [ngClass.gt-sm]="'mb-0 ml-32'">
+
+                        <div class="p-16 pb-0" fxLayout="row wrap" fxLayoutAlign="start end">
+
+                            <div class="pr-16">
+                                <div class="h3 secondary-text">המרה</div>
+                                <div class="font-size-54 font-weight-300 line-height-1 mt-8">
+                                    {{widgets.widget2.conversion.value}}
+                                </div>
+                            </div>
+
+                            <div class="py-4 font-size-16" fxLayout="row" fxLayoutAlign="start center">
+                                <div fxFlex="row" fxLayoutAlign="start center" class="green-fg"
+                                     *ngIf="widgets.widget2.conversion.ofTarget > 0">
+                                    <mat-icon class="green-fg mr-4">trending_up</mat-icon>
+                                    <span>{{widgets.widget2.conversion.ofTarget}}%</span>
+                                </div>
+                                <div fxFlex="row" fxLayoutAlign="start center" class="red-fg"
+                                     *ngIf="widgets.widget2.conversion.ofTarget < 0">
+                                    <mat-icon class="red-fg mr-4">trending_down</mat-icon>
+                                    <span>{{widgets.widget2.conversion.ofTarget}}%</span>
+                                </div>
+                                <div class="mr-4 text-nowrap">מהיעד</div>
+                            </div>
+
+                        </div>
+
+                        <div class="h-96 w-100-p">
+                            <canvas baseChart
+                                    [datasets]="widgets.widget2.datasets"
+                                    [labels]="widgets.widget2.labels"
+                                    [colors]="widgets.widget2.colors"
+                                    [options]="widgets.widget2.options"
+                                    [chartType]="widgets.widget2.chartType">
+                            </canvas>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- / Widget 2 -->
+
+                <!-- Widget 3 -->
+                <div class="widget" fxFlex="100" fxFlex.gt-sm="34">
+
+                    <div class="fuse-card auto-width mb-32" [ngClass.gt-sm]="'mb-0 ml-32'">
+
+                        <div class="p-16 pb-0" fxLayout="row wrap" fxLayoutAlign="start end">
+
+                            <div class="pr-16">
+                                <div class="h3 secondary-text">התרשמות</div>
+                                <div class="font-size-54 font-weight-300 line-height-1 mt-8">
+                                    {{widgets.widget3.impressions.value}}
+                                </div>
+                            </div>
+
+                            <div class="py-4 font-size-16" fxLayout="row" fxLayoutAlign="start center">
+                                <div fxFlex="row" fxLayoutAlign="start center" class="green-fg"
+                                     *ngIf="widgets.widget3.impressions.ofTarget > 0">
+                                    <mat-icon class="green-fg mr-4">trending_up</mat-icon>
+                                    <span>{{widgets.widget3.impressions.ofTarget}}%</span>
+                                </div>
+                                <div fxFlex="row" fxLayoutAlign="start center" class="red-fg"
+                                     *ngIf="widgets.widget3.impressions.ofTarget < 0">
+                                    <mat-icon class="red-fg mr-4">trending_down</mat-icon>
+                                    <span>{{widgets.widget3.impressions.ofTarget}}%</span>
+                                </div>
+                                <div class="mr-4 text-nowrap">מהיעד</div>
+                            </div>
+
+                        </div>
+
+                        <div class="h-96 w-100-p">
+                            <canvas baseChart
+                                    [datasets]="widgets.widget3.datasets"
+                                    [labels]="widgets.widget3.labels"
+                                    [colors]="widgets.widget3.colors"
+                                    [options]="widgets.widget3.options"
+                                    [chartType]="widgets.widget3.chartType">
+                            </canvas>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- / Widget 3 -->
+
+                <!-- Widget 4 -->
+                <div class="widget" fxFlex="100" fxFlex.gt-sm="33">
+
+                    <div class="fuse-card auto-width">
+
+                        <div class="p-16 pb-0" fxLayout="row wrap" fxLayoutAlign="start end">
+
+                            <div class="pr-16">
+                                <div class="h3 secondary-text">ביקורים</div>
+                                <div class="font-size-54 font-weight-300 line-height-1 mt-8">
+                                    {{widgets.widget4.visits.value}}
+                                </div>
+                            </div>
+
+                            <div class="py-4 font-size-16" fxLayout="row" fxLayoutAlign="start center">
+                                <div fxFlex="row" fxLayoutAlign="start center" class="green-fg"
+                                     *ngIf="widgets.widget4.visits.ofTarget > 0">
+                                    <mat-icon class="green-fg mr-4">trending_up</mat-icon>
+                                    <span>{{widgets.widget4.visits.ofTarget}}%</span>
+                                </div>
+                                <div fxFlex="row" fxLayoutAlign="start center" class="red-fg"
+                                     *ngIf="widgets.widget4.visits.ofTarget < 0">
+                                    <mat-icon class="red-fg mr-4">trending_down</mat-icon>
+                                    <span>{{widgets.widget4.visits.ofTarget}}%</span>
+                                </div>
+                                <div class="mr-4 text-nowrap">מהיעד</div>
+                            </div>
+
+                        </div>
+
+                        <div class="h-96 w-100-p">
+                            <canvas baseChart
+                                    [datasets]="widgets.widget4.datasets"
+                                    [labels]="widgets.widget4.labels"
+                                    [colors]="widgets.widget4.colors"
+                                    [options]="widgets.widget4.options"
+                                    [chartType]="widgets.widget4.chartType">
+                            </canvas>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- / Widget 4 -->
+            </div>
+
+            <div class="fuse-card auto-width">
+
+                <div class="position-relative p-24"
+                     fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="column" fxLayoutAlign="start start">
+                        <span class="h2">משימות וביצועים</span>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <div class="py-8 px-12 border-radius-2 line-height-1 ml-8 cursor-pointer"
+                             (click)="widget5SelectedDay = 'yesterday'"
+                             [ngClass]="{'accent': widget5SelectedDay === 'yesterday'}">
+                            אתמול
+                        </div>
+                        <div class="py-8 px-12 border-radius-2 line-height-1 ml-8 cursor-pointer"
+                             (click)="widget5SelectedDay = 'today'"
+                             [ngClass]="{'accent': widget5SelectedDay === 'today'}">
+                            היום
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-relative h-368 pb-16">
+                    <canvas baseChart
+                            [datasets]="widgets.widget5.datasets[widget5SelectedDay]"
+                            [labels]="widgets.widget5.labels"
+                            [colors]="widgets.widget5.colors"
+                            [options]="widgets.widget5.options"
+                            [chartType]="widgets.widget5.chartType">
+                    </canvas>
+                </div>
+
+            </div>
+            <!-- / Widget 5 -->
+
+        </div>
+
+        <div class="right">
+
+            <div fxLayout="row wrap" fxLayout.gt-md="column">
+
+                <!-- Widget 8 -->
+                <div class="mb-48" [ngClass.lt-lg]="'ml-32'" [ngClass.xs]="'ml-0'">
+
+
+                    <div class="fuse-card">
+
+                        <div class="light-blue-600">
+
+                            <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center">
+                                <div class="pr-16">
+                                    <div class="h1 font-weight-300">הכנסות</div>
+                                    <div class="h5 secondary-text">גרף הכנסות שלך במצטבר</div>
+                                </div>
+
+                                <div>
+                                    <button mat-icon-button [matMenuTriggerFor]="card19Menu" aria-label="more">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+
+                                    <mat-menu #card19Menu="matMenu">
+                                        <button mat-menu-item>
+                                            <mat-icon>trending_up</mat-icon>
+                                            <span>מגמה</span>
+                                        </button>
+                                        <button mat-menu-item>
+                                            <mat-icon>history</mat-icon>
+                                            <span>היסטוריה</span>
+                                        </button>
+                                        <button mat-menu-item>
+                                            <mat-icon>notifications_off</mat-icon>
+                                            <span>בטל התראות</span>
+                                        </button>
+                                    </mat-menu>
+                                </div>
+                            </div>
+
+                            <div class="p-16 pt-8" fxLayout="row" fxLayoutAlign="space-between end">
+                                <div class="font-size-48 font-weight-300 line-height-1">{{widgets.widget8.today}}</div>
+                                <div fxLayout="row" fxLayoutAlign="start center">
+                                    <mat-icon *ngIf="widgets.widget8.change.value > 0">trending_up</mat-icon>
+                                    <mat-icon *ngIf="widgets.widget8.change.value < 0">trending_down</mat-icon>
+                                    <div class="ml-8">{{widgets.widget8.change.value}}
+                                        ({{widgets.widget8.change.percentage}}%)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <mat-tab-group backgroundColor="accent">
+                            <mat-tab label="יום">
+                                <div class="h-200 my-16">
+                                    <ngx-charts-line-chart
+                                        *fuseIfOnDom
+                                        [scheme]="widgets.widget8.scheme"
+                                        [results]="widgets.widget8.data"
+                                        [xAxis]="false"
+                                        [yAxis]="true"
+                                        [yScaleMin]="widgets.widget8.dataMin"
+                                        [yScaleMax]="widgets.widget8.dataMax">
+                                    </ngx-charts-line-chart>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="שבוע">
+                                <div class="h-200 my-16">
+                                    <ngx-charts-line-chart
+                                        *fuseIfOnDom
+                                        [scheme]="widgets.widget8.scheme"
+                                        [results]="widgets.widget8.data"
+                                        [xAxis]="false"
+                                        [yAxis]="true"
+                                        [yScaleMin]="widgets.widget8.dataMin"
+                                        [yScaleMax]="widgets.widget8.dataMax">
+                                    </ngx-charts-line-chart>
+                                </div>
+                            </mat-tab>
+
+                            <mat-tab label="חודש">
+                                <div class="h-200 my-16">
+                                    <ngx-charts-line-chart
+                                        *fuseIfOnDom
+                                        [scheme]="widgets.widget8.scheme"
+                                        [results]="widgets.widget8.data"
+                                        [xAxis]="false"
+                                        [yAxis]="true"
+                                        [yScaleMin]="widgets.widget8.dataMin"
+                                        [yScaleMax]="widgets.widget8.dataMax">
+                                    </ngx-charts-line-chart>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+
+                    </div>
+
+                </div>
+
+                <!-- / Widget 8 -->
+
+                <!-- Widget 9 -->
+                <div class="mb-48" [ngClass.lt-lg]="'ml-32'" [ngClass.xs]="'ml-0'">
+
+                    <div class="fuse-card">
+
+                        <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center">
+                            <div class="h1 pr-16">לקוחות מובילים</div>
+
+                            <div>
+                                <button mat-icon-button [matMenuTriggerFor]="card20Menu" aria-label="more">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+
+                                <mat-menu #card20Menu="matMenu">
+                                    <button fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
+                                        <mat-icon color="accent">check_box</mat-icon>
+                                        <span>הצג הכנסות</span>
+                                    </button>
+                                    <button fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
+                                        <mat-icon color="accent">check_box</mat-icon>
+                                        <span>הצג רווח</span>
+                                    </button>
+                                    <button fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
+                                        <mat-icon>check_box_outline_blank</mat-icon>
+                                        <span>הצג הכל</span>
+                                    </button>
+                                </mat-menu>
+                            </div>
+                        </div>
+
+                        <table class="simple clickable">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th class="text-right">הכנסות</th>
+                                    <th class="text-right">רווח</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of widgets.widget9.rows">
+                                    <td>{{row.title}}</td>
+                                    <td class="text-right">{{row.clicks}}</td>
+                                    <td class="text-right">{{row.conversion}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="card-divider full-width"></div>
+
+                        <div class="p-8 pt-16" fxLayout="row" fxLayoutAlign="start center">
+                            <button routerLink="/apps/contacts" mat-button color="accent">לרשימת הלקוחות</button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- / widget 9 -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

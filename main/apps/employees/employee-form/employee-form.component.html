@@ -1,0 +1,175 @@
+<div class="dialog-content-wrapper">
+    <mat-toolbar matDialogTitle class="mat-accent m-0">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="title dialog-title">{{dialogTitle}}</span>
+            <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row class="toolbar-bottom py-16" fxLayout="column" fxLayoutAlign="center center">
+            <img [src]="employee.avatar" class="avatar employee-avatar huge m-0"
+                 [alt]="employee.name"/>
+            <div class="employee-name mt-8">{{employee.name}} {{employee.lastName}}</div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div mat-dialog-content class="p-24 pb-0 m-0" fusePerfectScrollbar>
+
+        <form [formGroup]="employeeForm">
+            <mat-tab-group>
+                <mat-tab label=" נתונים כלליים">
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>שם</mat-label>
+                            <mat-icon matSuffix class="secondary-text">account_circle</mat-icon>
+                            <input name="name" formControlName="name" matInput required>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>שם משפחה</mat-label>
+                            <mat-icon matSuffix class="secondary-text">account_circle</mat-icon>
+                            <input name="lastName" formControlName="lastName" matInput>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>שם משתמש</mat-label>
+                            <mat-icon matSuffix class="secondary-text">star</mat-icon>
+                            <input name="nickname" formControlName="nickname" matInput>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>מספר טלפון</mat-label>
+                            <mat-icon matSuffix class="secondary-text">phone</mat-icon>
+                            <input formControlName="phone" matInput>
+                        </mat-form-field>
+                    </div>
+
+
+                </mat-tab>
+                <mat-tab label="נתונים נוספים">
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>אי-מיל</mat-label>
+                            <mat-icon matSuffix class="secondary-text">email</mat-icon>
+                            <input name="email" formControlName="email" matInput type="email">
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>חברה</mat-label>
+                            <mat-icon matSuffix class="secondary-text">domain</mat-icon>
+                            <input name="company" formControlName="company" matInput>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>תפקיד</mat-label>
+                            <mat-icon matSuffix class="secondary-text">work</mat-icon>
+                            <input name="jobTitle" formControlName="jobTitle" matInput>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>יום הולדת</mat-label>
+                            <input matInput [matDatepicker]="birthdayDatePicker" name="birthday" formControlName="birthday">
+                            <mat-datepicker-toggle matSuffix [for]="birthdayDatePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #birthdayDatePicker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>כתובת</mat-label>
+                            <mat-icon matSuffix class="secondary-text">home</mat-icon>
+                            <input name="address" formControlName="address" matInput>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row" class="textarea-wrapper" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>הערות</mat-label>
+                            <textarea name="notes" formControlName="notes" matInput type="text" max-rows="4"></textarea>
+                        </mat-form-field>
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="  אנשי קשר">
+
+                </mat-tab>
+
+                <mat-tab label="נתוני עבודה">
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>שם</mat-label>
+                            <mat-icon matSuffix class="secondary-text">account_circle</mat-icon>
+                            <input name="name" formControlName="name" matInput required>
+                        </mat-form-field>
+                    </div>
+                </mat-tab>
+                <mat-tab label="מטלות שוטפות">
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>שם</mat-label>
+                            <mat-icon matSuffix class="secondary-text">account_circle</mat-icon>
+                            <input name="name" formControlName="name" matInput required>
+                        </mat-form-field>
+                    </div>
+                </mat-tab>
+
+                <mat-tab label="השתלמויות">
+                    <div fxLayout="row" fxLayoutAlign="start start">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <mat-label>שם</mat-label>
+                            <mat-icon matSuffix class="secondary-text">account_circle</mat-icon>
+                            <input name="name" formControlName="name" matInput required>
+                        </mat-form-field>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+
+
+        </form>
+
+    </div>
+
+    <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="end center">
+
+        <button *ngIf="action === 'edit'"
+                mat-button
+                class="mr-8"
+                (click)="matDialogRef.close(['delete',employeeForm])"
+                aria-label="Delete"
+                matTooltip="Delete">
+            מחק
+        </button>
+
+        <button *ngIf="action !== 'edit'"
+                mat-button
+                class="save-button"
+                (click)="matDialogRef.close(employeeForm)"
+                [disabled]="employeeForm.invalid"
+                aria-label="SAVE">
+            הוסף
+        </button>
+
+        <button *ngIf="action === 'edit'"
+                mat-button
+                class="save-button"
+                (click)="matDialogRef.close(['save',employeeForm])"
+                [disabled]="employeeForm.invalid"
+                aria-label="SAVE">
+            שמור
+        </button>
+
+    </div>
+</div>

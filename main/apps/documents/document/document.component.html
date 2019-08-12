@@ -1,0 +1,80 @@
+<div id="documents-documents" class="page-layout simple">
+
+    <!-- HEADER -->
+    <div class="header accent p-16 p-sm-24" fxLayout="column" fxLayoutAlign="center center">
+
+        <div class="hero-text">
+            <mat-icon class="hero-icon">school</mat-icon>
+            <h1 [@animate]="{value:'*',params:{delay:'100ms', y:'25px'}}">
+                הפקת מסמכים
+            </h1>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content p-24">
+
+        <div fxLayout="column" fxLayoutAlign="center">
+
+            <div class="filters" fxLayout="column" fxLayoutAlign="center center"
+                 fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-between center">
+
+                <mat-form-field appearance="outline" floatLabel="always" class="document-search">
+                    <mat-label>חפש טופס</mat-label>
+                    <input matInput placeholder="הקלד שם.."
+                           [(ngModel)]="searchTerm"
+                           (input)="filterDocumentsByTerm()">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="category-selector">
+                    <mat-label>קטגוריה</mat-label>
+                    <mat-select [(ngModel)]="currentCategory"
+                                (selectionChange)="filterDocumentsByCategory()">
+                        <mat-option [value]="'all'">
+                            הכל
+                        </mat-option>
+                        <mat-option *ngFor="let category of categories" [value]="category.value">
+                            {{ category.label }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="documents" fxLayout="row wrap" fxLayoutAlign="center" [@animateStagger]="{value:'50'}">
+
+                <div class="document" *ngFor="let document of filteredDocuments" fxFlex="100" fxFlex.gt-xs="33"
+                     fxFlex.gt-sm="20" [@animate]="{value:'*',params:{y:'100%'}}">
+
+                    <div class="document-content" fxLayout="column" fxFlex="1 1 auto">
+
+                        <div class="header" fxLayout="row" fxLayoutAlign="center center"
+                             [ngClass]="'bg-'+ document.slug">
+                            <div class="category" fxFlex>
+                                {{document.category}}
+                            </div>
+                        </div>
+                        <div class="content" fxLayout="column" fxLayoutAlign="center center" fxFlex="1 1 auto">
+                            <button mat-button
+                                    [routerLink]="'/pages/invoices/modern'">
+                               {{document.title}}
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="no-documents" *ngIf="filteredDocuments.length === 0">
+                    לא נמצאו מסמכים
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>
