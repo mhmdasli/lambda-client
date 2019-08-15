@@ -9,10 +9,8 @@ import {FuseSidebarService} from '@fuse/components/sidebar/sidebar.service';
 import {FusePerfectScrollbarDirective} from '@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
 import {ChatPanelService} from 'app/layout/components/chat-panel/chat-panel.service';
 import io from 'socket.io-client';
+import {MatSnackBar} from '@angular/material';
 
-/*
-* TODO: complete io socket
- */
 @Component({
     selector: 'chat-panel',
     templateUrl: './chat-panel.component.html',
@@ -25,6 +23,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
     selectedContact: any;
     sidebarFolded: boolean;
     user: any;
+    audio = new Audio();
 
     @ViewChild('replyForm')
     set replyForm(content: NgForm) {
@@ -35,6 +34,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
     set replyInput(content: ElementRef) {
         this._replyInput = content;
     }
+
     private socket: any;
 
     @ViewChildren(FusePerfectScrollbarDirective)
@@ -52,12 +52,16 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
      * @param {ChatPanelService} _chatPanelService
      * @param {HttpClient} _httpClient
      * @param {FuseSidebarService} _fuseSidebarService
+     * @param _snackBar
      */
     constructor(
         private _chatPanelService: ChatPanelService,
         private _httpClient: HttpClient,
-        private _fuseSidebarService: FuseSidebarService
+        private _fuseSidebarService: FuseSidebarService,
+        private _snackBar: MatSnackBar
     ) {
+
+        this.audio.src = 'assets/sounds/chat_message.mp3';
         // Set the defaults
         this.selectedContact = null;
         this.sidebarFolded = true;
@@ -81,8 +85,35 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
             this.contacts = this._chatPanelService.contacts;
             this.user = this._chatPanelService.user;
 
+            this.socket = io.connect('http://localhost:3000');
+
+            this.socket.on('usersConnect', userId => {
+                const contact = this.contacts.find(contact => contact.id === userId);
+                if (contact) {
+                    contact.status = 'online';
+                }
+            });
+            this.socket.on('usersDisconnect', userId => {
+                const contact = this.contacts.find(contact => contact.id === userId);
+                if (contact) {
+                    contact.status = 'offline';
+                }
+            });
+            this.socket.on('chat message' + this.user.id, message => {
+                if (this.chat) {
+                    this.chat.dialog.push(message);
+                    this._prepareChatForReplies();
+                } else {
+                    this.audio.play();
+                    const contact = this.contacts.find(contact => contact.id === message.from);
+                    contact.unread = (contact.unread * 1) + 1;
+                    this._snackBar.open('התקבלה הודעה חדשה', 'סגור', {
+                        duration: 3000,
+                    });
+                }
+            });
+
         });
-       // this.socket = io('http://localhost:3000');
         // Subscribe to the foldedChanged observable
         this._fuseSidebarService.getSidebar('chatPanel').foldedChanged
             .pipe(takeUntil(this._unsubscribeAll))
@@ -98,10 +129,6 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
         this._chatViewScrollbar = this._fusePerfectScrollbarDirectives.find((directive) => {
             return directive.elementRef.nativeElement.id === 'messages';
         });
-        // this.socket.on('chat message', message => {
-        //     this.chat.dialog.push(message);
-        //     alert(message);
-        // });
     }
 
     /**
@@ -226,9 +253,10 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
 
             // Load the chat
             this._chatPanelService.getChat(contact.id).then((chat) => {
-
                 // Set the chat
                 this.chat = chat;
+                // set chat badge  to 0
+                contact.unread = 0;
 
                 // Prepare the chat for the replies
                 this._prepareChatForReplies();
@@ -265,7 +293,6 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
         };
 
         // Add the message to the chat
-        // this.socket.emit('reply', message);
         this.chat.dialog.push(message);
 
         // Reset the reply form
@@ -273,6 +300,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
 
         // Update the server
         this._chatPanelService.updateChat(this.chat.id, message).then(response => {
+            this.socket.emit('reply', message);
 
             // Prepare the chat for the replies
             this._prepareChatForReplies();
