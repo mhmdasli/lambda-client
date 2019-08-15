@@ -10,6 +10,7 @@ import {FusePerfectScrollbarDirective} from '@fuse/directives/fuse-perfect-scrol
 import {ChatPanelService} from 'app/layout/components/chat-panel/chat-panel.service';
 import io from 'socket.io-client';
 import {MatSnackBar} from '@angular/material';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'chat-panel',
@@ -85,7 +86,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
             this.contacts = this._chatPanelService.contacts;
             this.user = this._chatPanelService.user;
 
-            this.socket = io.connect('http://localhost:3000');
+            this.socket = io.connect(environment.socketUrl);
 
             this.socket.on('usersConnect', userId => {
                 const contact = this.contacts.find(contact => contact.id === userId);
