@@ -1,4 +1,4 @@
-@import "src/@fuse/scss/fuse";
+@import "src/@lambda/scss/lambda";
 
 chat-panel {
     display: flex;
@@ -17,16 +17,16 @@ chat-panel {
 
     .header {
         position: relative;
-        height: 64px;
-        max-height: 64px;
-        min-height: 64px;
+        height: 56px;
+        max-height: 56px;
+        min-height: 56px;
         z-index: 10;
 
         .title {
             cursor: pointer;
 
             mat-icon {
-                margin-left: 4px;
+                margin-right: 4px;
             }
 
             h3 {
@@ -374,7 +374,7 @@ chat-panel {
     }
 }
 
-fuse-sidebar {
+lambda-sidebar {
 
     &.chat-panel {
         width: 360px;

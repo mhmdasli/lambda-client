@@ -5,8 +5,8 @@ import { Subject } from 'rxjs';
 import { startOfDay, isSameDay, isSameMonth } from 'date-fns';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarMonthViewDay } from 'angular-calendar';
 
-import { FuseConfirmDialogComponent } from '@fuse/components/confirm-dialog/confirm-dialog.component';
-import { fuseAnimations } from '@fuse/animations';
+import { LambdaConfirmDialogComponent } from '@lambda/components/confirm-dialog/confirm-dialog.component';
+import { lambdaAnimations } from '@lambda/animations';
 
 import { CalendarService } from 'app/main/apps/calendar/calendar.service';
 import { CalendarEventModel } from 'app/main/apps/calendar/event.model';
@@ -17,13 +17,13 @@ import { CalendarEventFormDialogComponent } from 'app/main/apps/calendar/event-f
     templateUrl  : './calendar.component.html',
     styleUrls    : ['./calendar.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class CalendarComponent implements OnInit
 {
     actions: CalendarEventAction[];
     activeDayIsOpen: boolean;
-    confirmDialogRef: MatDialogRef<FuseConfirmDialogComponent>;
+    confirmDialogRef: MatDialogRef<LambdaConfirmDialogComponent>;
     dialogRef: any;
     events: CalendarEvent[];
     refresh: Subject<any> = new Subject();
@@ -178,7 +178,7 @@ export class CalendarComponent implements OnInit
      */
     deleteEvent(event): void
     {
-        this.confirmDialogRef = this._matDialog.open(FuseConfirmDialogComponent, {
+        this.confirmDialogRef = this._matDialog.open(LambdaConfirmDialogComponent, {
             disableClose: false
         });
 

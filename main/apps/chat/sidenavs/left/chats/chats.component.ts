@@ -3,8 +3,8 @@ import { MediaObserver } from '@angular/flex-layout';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
-import { FuseMatSidenavHelperService } from '@fuse/directives/fuse-mat-sidenav/fuse-mat-sidenav.service';
+import { lambdaAnimations } from '@lambda/animations';
+import { LambdaMatSidenavHelperService } from '@lambda/directives/lambda-mat-sidenav/lambda-mat-sidenav.service';
 
 import { ChatService } from 'app/main/apps/chat/chat.service';
 
@@ -13,7 +13,7 @@ import { ChatService } from 'app/main/apps/chat/chat.service';
     templateUrl  : './chats.component.html',
     styleUrls    : ['./chats.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class ChatChatsSidenavComponent implements OnInit, OnDestroy
 {
@@ -30,12 +30,12 @@ export class ChatChatsSidenavComponent implements OnInit, OnDestroy
      * Constructor
      *
      * @param {ChatService} _chatService
-     * @param {FuseMatSidenavHelperService} _fuseMatSidenavHelperService
+     * @param {LambdaMatSidenavHelperService} _lambdaMatSidenavHelperService
      * @param {MediaObserver} _mediaObserver
      */
     constructor(
         private _chatService: ChatService,
-        private _fuseMatSidenavHelperService: FuseMatSidenavHelperService,
+        private _lambdaMatSidenavHelperService: LambdaMatSidenavHelperService,
         public _mediaObserver: MediaObserver
     )
     {
@@ -100,7 +100,7 @@ export class ChatChatsSidenavComponent implements OnInit, OnDestroy
 
         if ( !this._mediaObserver.isActive('gt-md') )
         {
-            this._fuseMatSidenavHelperService.getSidenav('chat-left-sidenav').toggle();
+            this._lambdaMatSidenavHelperService.getSidenav('chat-left-sidenav').toggle();
         }
     }
 

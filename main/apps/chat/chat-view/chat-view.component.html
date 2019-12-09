@@ -10,7 +10,7 @@
 
                 <!-- RESPONSIVE CHATS BUTTON-->
                 <button mat-icon-button fxHide.gt-md class="responsive-chats-button mr-16"
-                        fuseMatSidenavToggler="chat-left-sidenav"
+                        lambdaMatSidenavToggler="chat-left-sidenav"
                         aria-label="chats button">
                     <mat-icon>chat</mat-icon>
                 </button>
@@ -18,7 +18,7 @@
 
                 <!-- CHAT CONTACT-->
                 <div class="chat-contact" fxLayout="row" fxLayoutAlign="start center"
-                     fuseMatSidenavToggler="chat-right-sidenav" (click)="selectContact()">
+                     lambdaMatSidenavToggler="chat-right-sidenav" (click)="selectContact()">
 
                     <div class="avatar-wrapper">
 
@@ -45,7 +45,7 @@
                 </button>
 
                 <mat-menu #contactMenu="matMenu">
-                    <button mat-menu-item fuseMatSidenavToggler="chat-right-sidenav" (click)="selectContact()">
+                    <button mat-menu-item lambdaMatSidenavToggler="chat-right-sidenav" (click)="selectContact()">
                         פרטי הלקוח
                     </button>
                 </mat-menu>
@@ -56,7 +56,7 @@
     <!-- / CHAT TOOLBAR -->
 
     <!-- CHAT CONTENT -->
-    <div id="chat-content" fxFlex="1 1 auto"  fusePerfectScrollbar>
+    <div id="chat-content" fxFlex="1 1 auto"  lambdaPerfectScrollbar>
 
         <!-- CHAT MESSAGES -->
         <div class="chat-messages">

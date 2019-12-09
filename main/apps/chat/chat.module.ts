@@ -5,7 +5,7 @@ import {
     MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatRadioModule, MatSidenavModule, MatToolbarModule
 } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { ChatService } from 'app/main/apps/chat/chat.service';
 import { ChatComponent } from 'app/main/apps/chat/chat.component';
@@ -53,7 +53,7 @@ const routes: Routes = [
         MatSidenavModule,
         MatToolbarModule,
 
-        FuseSharedModule
+        LambdaSharedModule
     ],
     providers   : [
         ChatService

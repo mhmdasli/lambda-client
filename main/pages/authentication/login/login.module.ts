@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSnackBarModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { LoginComponent } from 'app/main/pages/authentication/login/login.component';
 
@@ -27,7 +27,7 @@ const routes = [
         MatInputModule,
         MatSnackBarModule,
 
-        FuseSharedModule,
+        LambdaSharedModule,
     ]
 })
 export class LoginModule

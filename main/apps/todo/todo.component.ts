@@ -3,8 +3,8 @@ import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
-import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { lambdaAnimations } from '@lambda/animations';
+import { LambdaSidebarService } from '@lambda/components/sidebar/sidebar.service';
 
 import { Todo } from 'app/main/apps/todo/todo.model';
 import { TodoService } from 'app/main/apps/todo/todo.service';
@@ -14,7 +14,7 @@ import { TodoService } from 'app/main/apps/todo/todo.service';
     templateUrl  : './todo.component.html',
     styleUrls    : ['./todo.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class TodoComponent implements OnInit, OnDestroy
 {
@@ -31,11 +31,11 @@ export class TodoComponent implements OnInit, OnDestroy
     /**
      * Constructor
      *
-     * @param {FuseSidebarService} _fuseSidebarService
+     * @param {LambdaSidebarService} _lambdaSidebarService
      * @param {TodoService} _todoService
      */
     constructor(
-        private _fuseSidebarService: FuseSidebarService,
+        private _lambdaSidebarService: LambdaSidebarService,
         private _todoService: TodoService
     )
     {
@@ -167,6 +167,6 @@ export class TodoComponent implements OnInit, OnDestroy
      */
     toggleSidebar(name): void
     {
-        this._fuseSidebarService.getSidebar(name).toggleOpen();
+        this._lambdaSidebarService.getSidebar(name).toggleOpen();
     }
 }

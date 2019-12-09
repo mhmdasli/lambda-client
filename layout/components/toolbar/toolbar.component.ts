@@ -4,8 +4,8 @@ import {takeUntil} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
 import * as _ from 'lodash';
 
-import {FuseConfigService} from '@fuse/services/config.service';
-import {FuseSidebarService} from '@fuse/components/sidebar/sidebar.service';
+import {LambdaConfigService} from '@lambda/services/config.service';
+import {LambdaSidebarService} from '@lambda/components/sidebar/sidebar.service';
 import {navigation} from 'app/navigation/navigation';
 import {AuthService} from '../../../auth.service';
 import {MatDialog} from '@angular/material';
@@ -33,13 +33,13 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     /**
      * Constructor
      *
-     * @param {FuseConfigService} _fuseConfigService
-     * @param {FuseSidebarService} _fuseSidebarService
+     * @param {LambdaConfigService} _lambdaConfigService
+     * @param {LambdaSidebarService} _lambdaSidebarService
      * @param {TranslateService} _translateService
      */
     constructor(
-        private _fuseConfigService: FuseConfigService,
-        private _fuseSidebarService: FuseSidebarService,
+        private _lambdaConfigService: LambdaConfigService,
+        private _lambdaSidebarService: LambdaSidebarService,
         private _translateService: TranslateService,
         private auth: AuthService,
         public dialog: MatDialog,
@@ -101,7 +101,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
      */
     ngOnInit(): void {
         // Subscribe to the config changes
-        this._fuseConfigService.config
+        this._lambdaConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((settings) => {
                 this.horizontalNavbar = settings.layout.navbar.position === 'top';
@@ -152,7 +152,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
      * @param key
      */
     toggleSidebarOpen(key): void {
-        this._fuseSidebarService.getSidebar(key).toggleOpen();
+        this._lambdaSidebarService.getSidebar(key).toggleOpen();
     }
 
     /**

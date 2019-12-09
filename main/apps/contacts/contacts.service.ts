@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
-import { FuseUtils } from '@fuse/utils';
+import { LambdaUtils } from '@lambda/utils';
 
 import { Contact } from 'app/main/apps/contacts/contact.model';
 
@@ -108,7 +108,7 @@ export class ContactsService implements Resolve<any>
 
                         if ( this.searchText && this.searchText !== '' )
                         {
-                            this.contacts = FuseUtils.filterArrayByString(this.contacts, this.searchText);
+                            this.contacts = LambdaUtils.filterArrayByString(this.contacts, this.searchText);
                         }
 
                         this.contacts = this.contacts.map(contact => {

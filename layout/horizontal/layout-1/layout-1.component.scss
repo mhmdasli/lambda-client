@@ -1,4 +1,4 @@
-@import "src/@fuse/scss/fuse";
+@import "src/@lambda/scss/lambda";
 
 horizontal-layout-1 {
     display: flex;
@@ -7,6 +7,7 @@ horizontal-layout-1 {
     height: 100%;
 
     #main {
+        padding-bottom: 56px;
         position: relative;
         display: flex;
         flex: 1 1 auto;

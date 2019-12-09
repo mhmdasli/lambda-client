@@ -9,11 +9,11 @@ import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {TranslateModule} from '@ngx-translate/core';
 import 'hammerjs';
 
-import {FuseModule} from '@fuse/fuse.module';
-import {FuseSharedModule} from '@fuse/shared.module';
-import {FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule} from '@fuse/components';
+import {LambdaModule} from '@lambda/lambda.module';
+import {LambdaSharedModule} from '@lambda/shared.module';
+import {LambdaProgressBarModule, LambdaSidebarModule, LambdaThemeOptionsModule} from '@lambda/components';
 
-import {fuseConfig} from 'app/fuse-config';
+import {lambdaConfig} from 'app/lambda-config';
 
 import {FakeDbService} from 'app/fake-db/fake-db.service';
 import {AppComponent} from 'app/app.component';
@@ -70,12 +70,12 @@ const appRoutes: Routes = [
         MatButtonModule,
         MatIconModule,
 
-        // Fuse modules
-        FuseModule.forRoot(fuseConfig),
-        FuseProgressBarModule,
-        FuseSharedModule,
-        FuseSidebarModule,
-        FuseThemeOptionsModule,
+        // Lambda modules
+        LambdaModule.forRoot(lambdaConfig),
+        LambdaProgressBarModule,
+        LambdaSharedModule,
+        LambdaSidebarModule,
+        LambdaThemeOptionsModule,
 
         // App modules
         LayoutModule,

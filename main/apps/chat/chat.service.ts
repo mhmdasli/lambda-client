@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
-import { FuseUtils } from '@fuse/utils';
+import { LambdaUtils } from '@lambda/utils';
 
 @Injectable()
 export class ChatService implements Resolve<any>
@@ -120,7 +120,7 @@ export class ChatService implements Resolve<any>
                 return item.id === contactId;
             });
 
-            const chatId = FuseUtils.generateGUID();
+            const chatId = LambdaUtils.generateGUID();
 
             const chat = {
                 id    : chatId,

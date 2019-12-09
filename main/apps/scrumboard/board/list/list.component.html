@@ -26,7 +26,7 @@
 
         <div class="list-cards ngx-dnd-container"
              [model]="list.idCards" ngxDroppable="card" (out)="onDrop($event)"
-             fusePerfectScrollbar #listScroll>
+             lambdaPerfectScrollbar #listScroll>
             <scrumboard-board-card ngxDraggable
                                    (click)="openCardDialog(cardId)"
                                    class="scrumboard-board-card ngx-dnd-item"

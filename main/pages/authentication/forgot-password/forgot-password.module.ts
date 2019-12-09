@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { ForgotPasswordComponent } from 'app/main/pages/authentication/forgot-password/forgot-password.component';
 
@@ -25,7 +25,7 @@ const routes = [
         MatIconModule,
         MatInputModule,
 
-        FuseSharedModule
+        LambdaSharedModule
     ]
 })
 export class ForgotPasswordModule

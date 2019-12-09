@@ -5,8 +5,8 @@ import {
 } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseSidebarModule } from '@fuse/components';
+import { LambdaSharedModule } from '@lambda/shared.module';
+import { LambdaSidebarModule } from '@lambda/components';
 
 import * as fromGuards from 'app/main/apps/mail-ngrx/store/guards/index';
 import { MailNgrxStoreModule } from 'app/main/apps/mail-ngrx/store/store.module';
@@ -80,8 +80,8 @@ const routes: Routes = [
 
         TranslateModule,
 
-        FuseSharedModule,
-        FuseSidebarModule,
+        LambdaSharedModule,
+        LambdaSidebarModule,
 
         MailNgrxStoreModule
     ],

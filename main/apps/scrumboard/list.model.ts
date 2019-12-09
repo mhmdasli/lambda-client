@@ -1,4 +1,4 @@
-import { FuseUtils } from '@fuse/utils';
+import { LambdaUtils } from '@lambda/utils';
 
 export class List
 {
@@ -13,7 +13,7 @@ export class List
      */
     constructor(list)
     {
-        this.id = list.id || FuseUtils.generateGUID();
+        this.id = list.id || LambdaUtils.generateGUID();
         this.name = list.name || '';
         this.idCards = [];
     }

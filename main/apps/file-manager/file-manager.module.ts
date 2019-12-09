@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule, MatIconModule, MatRippleModule, MatSlideToggleModule, MatTableModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseSidebarModule } from '@fuse/components';
+import { LambdaSharedModule } from '@lambda/shared.module';
+import { LambdaSidebarModule } from '@lambda/components';
 
 import { FileManagerService } from 'app/main/apps/file-manager/file-manager.service';
 import { FileManagerComponent } from 'app/main/apps/file-manager/file-manager.component';
@@ -38,8 +38,8 @@ const routes: Routes = [
         MatSlideToggleModule,
         MatTableModule,
 
-        FuseSharedModule,
-        FuseSidebarModule
+        LambdaSharedModule,
+        LambdaSidebarModule
     ],
     providers   : [
         FileManagerService

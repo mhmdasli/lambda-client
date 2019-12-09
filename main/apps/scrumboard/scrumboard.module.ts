@@ -6,8 +6,8 @@ import {
 } from '@angular/material';
 import { NgxDnDModule } from '@swimlane/ngx-dnd';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseConfirmDialogModule, FuseMaterialColorPickerModule } from '@fuse/components';
+import { LambdaSharedModule } from '@lambda/shared.module';
+import { LambdaConfirmDialogModule, LambdaMaterialColorPickerModule } from '@lambda/components';
 
 import { BoardResolve, ScrumboardService } from 'app/main/apps/scrumboard/scrumboard.service';
 import { ScrumboardComponent } from 'app/main/apps/scrumboard/scrumboard.component';
@@ -82,9 +82,9 @@ const routes: Routes = [
 
         NgxDnDModule,
 
-        FuseSharedModule,
-        FuseConfirmDialogModule,
-        FuseMaterialColorPickerModule
+        LambdaSharedModule,
+        LambdaConfirmDialogModule,
+        LambdaMaterialColorPickerModule
     ],
     providers: [
         ScrumboardService,

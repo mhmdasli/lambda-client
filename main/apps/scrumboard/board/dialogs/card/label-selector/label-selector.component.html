@@ -10,7 +10,7 @@
             </button>
         </div>
 
-        <div fxFlex fxLayout="column" fusePerfectScrollbar>
+        <div fxFlex fxLayout="column" lambdaPerfectScrollbar>
 
             <div class="label" *ngFor="let label of board.labels" fxFlex="0 0 auto" fxLayout="row"
                  fxLayoutAlign="space-between center">
@@ -47,8 +47,8 @@
                 <input matInput placeholder="שם" [(ngModel)]="selectedLabel.name" (change)="onLabelChange()">
             </mat-form-field>
 
-            <fuse-material-color-picker [(ngModel)]="selectedLabel.color" class="ml-8"
-                                        (colorChanged)="$event.preventDefault;onLabelChange()"></fuse-material-color-picker>
+            <lambda-material-color-picker [(ngModel)]="selectedLabel.color" class="ml-8"
+                                        (colorChanged)="$event.preventDefault;onLabelChange()"></lambda-material-color-picker>
         </div>
 
     </div>
@@ -69,8 +69,8 @@
                     <input matInput placeholder="שם" [(ngModel)]="newLabel.name" name="labelName" required>
                 </mat-form-field>
 
-                <fuse-material-color-picker class="ml-8" [(ngModel)]="newLabel.color"
-                                            name="labelColor"></fuse-material-color-picker>
+                <lambda-material-color-picker class="ml-8" [(ngModel)]="newLabel.color"
+                                            name="labelColor"></lambda-material-color-picker>
             </div>
 
             <button mat-raised-button class="mat-accent mt-16" [disabled]="!newLabelForm.valid">הוסף תגית חדשה</button>

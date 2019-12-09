@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
+import { lambdaAnimations } from '@lambda/animations';
 
 import { TodoService } from 'app/main/apps/todo/todo.service';
 
@@ -12,7 +12,7 @@ import { TodoService } from 'app/main/apps/todo/todo.service';
     templateUrl  : './main-sidebar.component.html',
     styleUrls    : ['./main-sidebar.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class TodoMainSidebarComponent implements OnInit, OnDestroy
 {

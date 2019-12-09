@@ -3,10 +3,10 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { delay, filter, take, takeUntil } from 'rxjs/operators';
 
-import { FuseConfigService } from '@fuse/services/config.service';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FusePerfectScrollbarDirective } from '@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
-import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { LambdaConfigService } from '@lambda/services/config.service';
+import { LambdaNavigationService } from '@lambda/components/navigation/navigation.service';
+import { LambdaPerfectScrollbarDirective } from '@lambda/directives/lambda-perfect-scrollbar/lambda-perfect-scrollbar.directive';
+import { LambdaSidebarService } from '@lambda/components/sidebar/sidebar.service';
 
 @Component({
     selector     : 'navbar-vertical-style-2',
@@ -16,25 +16,25 @@ import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 })
 export class NavbarVerticalStyle2Component implements OnInit, OnDestroy
 {
-    fuseConfig: any;
+    lambdaConfig: any;
     navigation: any;
 
     // Private
-    private _fusePerfectScrollbar: FusePerfectScrollbarDirective;
+    private _lambdaPerfectScrollbar: LambdaPerfectScrollbarDirective;
     private _unsubscribeAll: Subject<any>;
 
     /**
      * Constructor
      *
-     * @param {FuseConfigService} _fuseConfigService
-     * @param {FuseNavigationService} _fuseNavigationService
-     * @param {FuseSidebarService} _fuseSidebarService
+     * @param {LambdaConfigService} _lambdaConfigService
+     * @param {LambdaNavigationService} _lambdaNavigationService
+     * @param {LambdaSidebarService} _lambdaSidebarService
      * @param {Router} _router
      */
     constructor(
-        private _fuseConfigService: FuseConfigService,
-        private _fuseNavigationService: FuseNavigationService,
-        private _fuseSidebarService: FuseSidebarService,
+        private _lambdaConfigService: LambdaConfigService,
+        private _lambdaNavigationService: LambdaNavigationService,
+        private _lambdaSidebarService: LambdaSidebarService,
         private _router: Router
     )
     {
@@ -47,24 +47,24 @@ export class NavbarVerticalStyle2Component implements OnInit, OnDestroy
     // -----------------------------------------------------------------------------------------------------
 
     // Directive
-    @ViewChild(FusePerfectScrollbarDirective)
-    set directive(theDirective: FusePerfectScrollbarDirective)
+    @ViewChild(LambdaPerfectScrollbarDirective)
+    set directive(theDirective: LambdaPerfectScrollbarDirective)
     {
         if ( !theDirective )
         {
             return;
         }
 
-        this._fusePerfectScrollbar = theDirective;
+        this._lambdaPerfectScrollbar = theDirective;
 
         // Update the scrollbar on collapsable item toggle
-        this._fuseNavigationService.onItemCollapseToggled
+        this._lambdaNavigationService.onItemCollapseToggled
             .pipe(
                 delay(500),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe(() => {
-                this._fusePerfectScrollbar.update();
+                this._lambdaPerfectScrollbar.update();
             });
 
         // Scroll to the active item position
@@ -83,7 +83,7 @@ export class NavbarVerticalStyle2Component implements OnInit, OnDestroy
                                   activeItemOffsetParentTop = activeNavItem.offsetParent.offsetTop,
                                   scrollDistance            = activeItemOffsetTop - activeItemOffsetParentTop - (48 * 3);
 
-                            this._fusePerfectScrollbar.scrollToTop(scrollDistance);
+                            this._lambdaPerfectScrollbar.scrollToTop(scrollDistance);
                         }
                     });
                 }
@@ -105,28 +105,28 @@ export class NavbarVerticalStyle2Component implements OnInit, OnDestroy
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe(() => {
-                    if ( this._fuseSidebarService.getSidebar('navbar') )
+                    if ( this._lambdaSidebarService.getSidebar('navbar') )
                     {
-                        this._fuseSidebarService.getSidebar('navbar').close();
+                        this._lambdaSidebarService.getSidebar('navbar').close();
                     }
                 }
             );
 
         // Get current navigation
-        this._fuseNavigationService.onNavigationChanged
+        this._lambdaNavigationService.onNavigationChanged
             .pipe(
                 filter(value => value !== null),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe(() => {
-                this.navigation = this._fuseNavigationService.getCurrentNavigation();
+                this.navigation = this._lambdaNavigationService.getCurrentNavigation();
             });
 
         // Subscribe to the config changes
-        this._fuseConfigService.config
+        this._lambdaConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config) => {
-                this.fuseConfig = config;
+                this.lambdaConfig = config;
             });
     }
 
@@ -149,7 +149,7 @@ export class NavbarVerticalStyle2Component implements OnInit, OnDestroy
      */
     toggleSidebarOpened(): void
     {
-        this._fuseSidebarService.getSidebar('navbar').toggleOpen();
+        this._lambdaSidebarService.getSidebar('navbar').toggleOpen();
     }
 
     /**
@@ -157,6 +157,6 @@ export class NavbarVerticalStyle2Component implements OnInit, OnDestroy
      */
     toggleSidebarFolded(): void
     {
-        this._fuseSidebarService.getSidebar('navbar').toggleFold();
+        this._lambdaSidebarService.getSidebar('navbar').toggleFold();
     }
 }

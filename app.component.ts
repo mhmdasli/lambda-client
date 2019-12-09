@@ -5,11 +5,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { FuseConfigService } from '@fuse/services/config.service';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
-import { FuseSplashScreenService } from '@fuse/services/splash-screen.service';
-import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
+import { LambdaConfigService } from '@lambda/services/config.service';
+import { LambdaNavigationService } from '@lambda/components/navigation/navigation.service';
+import { LambdaSidebarService } from '@lambda/components/sidebar/sidebar.service';
+import { LambdaSplashScreenService } from '@lambda/services/splash-screen.service';
+import { LambdaTranslationLoaderService } from '@lambda/services/translation-loader.service';
 
 import { navigation } from 'app/navigation/navigation';
 import {CookieService} from 'ngx-cookie-service';
@@ -23,7 +23,7 @@ import {MatPaginatorIntl} from '@angular/material';
 })
 export class AppComponent implements OnInit, OnDestroy
 {
-    fuseConfig: any;
+    lambdaConfig: any;
     navigation: any;
 
     // Private
@@ -33,11 +33,11 @@ export class AppComponent implements OnInit, OnDestroy
      * Constructor
      *
      * @param {DOCUMENT} document
-     * @param {FuseConfigService} _fuseConfigService
-     * @param {FuseNavigationService} _fuseNavigationService
-     * @param {FuseSidebarService} _fuseSidebarService
-     * @param {FuseSplashScreenService} _fuseSplashScreenService
-     * @param {FuseTranslationLoaderService} _fuseTranslationLoaderService
+     * @param {LambdaConfigService} _lambdaConfigService
+     * @param {LambdaNavigationService} _lambdaNavigationService
+     * @param {LambdaSidebarService} _lambdaSidebarService
+     * @param {LambdaSplashScreenService} _lambdaSplashScreenService
+     * @param {LambdaTranslationLoaderService} _lambdaTranslationLoaderService
      * @param {Platform} _platform
      * @param {TranslateService} _translateService
      * @param cookie
@@ -46,11 +46,11 @@ export class AppComponent implements OnInit, OnDestroy
      */
     constructor(
         @Inject(DOCUMENT) private document: any,
-        private _fuseConfigService: FuseConfigService,
-        private _fuseNavigationService: FuseNavigationService,
-        private _fuseSidebarService: FuseSidebarService,
-        private _fuseSplashScreenService: FuseSplashScreenService,
-        private _fuseTranslationLoaderService: FuseTranslationLoaderService,
+        private _lambdaConfigService: LambdaConfigService,
+        private _lambdaNavigationService: LambdaNavigationService,
+        private _lambdaSidebarService: LambdaSidebarService,
+        private _lambdaSplashScreenService: LambdaSplashScreenService,
+        private _lambdaTranslationLoaderService: LambdaTranslationLoaderService,
         private _translateService: TranslateService,
         private _platform: Platform,
         private cookie: CookieService,
@@ -63,10 +63,10 @@ export class AppComponent implements OnInit, OnDestroy
         this.navigation = navigation;
 
         // Register the navigation to the service
-        this._fuseNavigationService.register('main', this.navigation);
+        this._lambdaNavigationService.register('main', this.navigation);
 
         // Set the main navigation as our current navigation
-        this._fuseNavigationService.setCurrentNavigation('main');
+        this._lambdaNavigationService.setCurrentNavigation('main');
 
         /**
          * ----------------------------------------------------------------------------------------------------
@@ -121,14 +121,14 @@ export class AppComponent implements OnInit, OnDestroy
     ngOnInit(): void
     {
         // Subscribe to config changes
-        this._fuseConfigService.config
+        this._lambdaConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config) => {
 
-                this.fuseConfig = config;
+                this.lambdaConfig = config;
 
                 // Boxed
-                if ( this.fuseConfig.layout.width === 'boxed' )
+                if ( this.lambdaConfig.layout.width === 'boxed' )
                 {
                     this.document.body.classList.add('boxed');
                 }
@@ -148,7 +148,7 @@ export class AppComponent implements OnInit, OnDestroy
                     }
                 }
 
-                this.document.body.classList.add(this.fuseConfig.colorTheme);
+                this.document.body.classList.add(this.lambdaConfig.colorTheme);
             });
     }
 
@@ -173,6 +173,6 @@ export class AppComponent implements OnInit, OnDestroy
      */
     toggleSidebarOpen(key): void
     {
-        this._fuseSidebarService.getSidebar(key).toggleOpen();
+        this._lambdaSidebarService.getSidebar(key).toggleOpen();
     }
 }

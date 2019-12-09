@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { MatExpansionModule, MatIconModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { FaqService } from 'app/main/pages/faq/faq.service';
 import { FaqComponent } from 'app/main/pages/faq/faq.component';
@@ -28,7 +28,7 @@ const routes = [
         MatExpansionModule,
         MatIconModule,
 
-        FuseSharedModule
+        LambdaSharedModule
     ],
     providers   : [
         FaqService

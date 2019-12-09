@@ -14,8 +14,8 @@ import {
     MatToolbarModule
 } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseConfirmDialogModule, FuseSidebarModule } from '@fuse/components';
+import { LambdaSharedModule } from '@lambda/shared.module';
+import { LambdaConfirmDialogModule, LambdaSidebarModule } from '@lambda/components';
 
 import { ContactsComponent } from 'app/main/apps/contacts/contacts.component';
 import { ContactsService } from 'app/main/apps/contacts/contacts.service';
@@ -56,9 +56,9 @@ const routes: Routes = [
         MatTableModule,
         MatToolbarModule,
 
-        FuseSharedModule,
-        FuseConfirmDialogModule,
-        FuseSidebarModule,
+        LambdaSharedModule,
+        LambdaConfirmDialogModule,
+        LambdaSidebarModule,
         MatTabsModule
     ],
     providers      : [

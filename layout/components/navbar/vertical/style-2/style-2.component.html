@@ -1,8 +1,8 @@
-<div class="navbar-header" [ngClass]="fuseConfig.layout.navbar.secondaryBackground">
+<div class="navbar-header" [ngClass]="lambdaConfig.layout.navbar.secondaryBackground">
 
     <div class="logo">
-        <img class="logo-icon" src="assets/images/logos/fuse.svg">
-        <span class="logo-text">FUSE</span>
+        <img class="logo-icon" src="assets/images/logos/lambda.svg">
+        <span class="logo-text">Lambda</span>
     </div>
 
     <button mat-icon-button class="toggle-sidebar-folded"
@@ -17,7 +17,7 @@
 
 </div>
 
-<div class="navbar-content" fusePerfectScrollbar [fusePerfectScrollbarOptions]="{suppressScrollX: true}"
-     [ngClass]="fuseConfig.layout.navbar.primaryBackground">
-    <fuse-navigation layout="vertical"></fuse-navigation>
+<div class="navbar-content" lambdaPerfectScrollbar [lambdaPerfectScrollbarOptions]="{suppressScrollX: true}"
+     [ngClass]="lambdaConfig.layout.navbar.primaryBackground">
+    <lambda-navigation layout="vertical"></lambda-navigation>
 </div>

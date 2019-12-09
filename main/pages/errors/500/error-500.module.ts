@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { Error500Component } from 'app/main/pages/errors/500/error-500.component';
 
@@ -19,7 +19,7 @@ const routes = [
     imports     : [
         RouterModule.forChild(routes),
 
-        FuseSharedModule
+        LambdaSharedModule
     ]
 })
 export class Error500Module

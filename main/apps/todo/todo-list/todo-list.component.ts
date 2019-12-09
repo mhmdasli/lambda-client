@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 
-import { fuseAnimations } from '@fuse/animations';
+import { lambdaAnimations } from '@lambda/animations';
 
 import { Todo } from 'app/main/apps/todo/todo.model';
 import { TodoService } from 'app/main/apps/todo/todo.service';
@@ -14,7 +14,7 @@ import { takeUntil } from 'rxjs/operators';
     templateUrl  : './todo-list.component.html',
     styleUrls    : ['./todo-list.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class TodoListComponent implements OnInit, OnDestroy
 {

@@ -13,12 +13,12 @@
 
             <div fxLayout="row" fxLayoutAlign="start center" *ngIf="horizontalNavbar">
                 <div class="logo ml-16">
-                    <img class="logo-icon" src="assets/images/logos/fuse.svg">
+                    <img class="logo-icon" src="assets/images/logos/lambda.svg">
                 </div>
             </div>
 
             <div class="px-8 px-md-16">
-                <fuse-shortcuts [navigation]="navigation"></fuse-shortcuts>
+                <lambda-shortcuts [navigation]="navigation"></lambda-shortcuts>
             </div>
 
         </div>
@@ -60,7 +60,7 @@
 
             <div class="toolbar-separator"></div>
 
-            <fuse-search-bar (input)="search($event)"></fuse-search-bar>
+            <lambda-search-bar (input)="search($event)"></lambda-search-bar>
 
             <div class="toolbar-separator"></div>
 

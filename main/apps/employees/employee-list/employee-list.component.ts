@@ -5,8 +5,8 @@ import { DataSource } from '@angular/cdk/collections';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
-import { FuseConfirmDialogComponent } from '@fuse/components/confirm-dialog/confirm-dialog.component';
+import { lambdaAnimations } from '@lambda/animations';
+import { LambdaConfirmDialogComponent } from '@lambda/components/confirm-dialog/confirm-dialog.component';
 
 import { EmployeesService } from 'app/main/apps/employees/employees.service';
 import { EmployeesEmployeeFormDialogComponent } from 'app/main/apps/employees/employee-form/employee-form.component';
@@ -16,7 +16,7 @@ import { EmployeesEmployeeFormDialogComponent } from 'app/main/apps/employees/em
     templateUrl  : './employee-list.component.html',
     styleUrls    : ['./employee-list.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class EmployeesEmployeeListComponent implements OnInit, OnDestroy
 {
@@ -30,7 +30,7 @@ export class EmployeesEmployeeListComponent implements OnInit, OnDestroy
     selectedEmployees: any[];
     checkboxes: {};
     dialogRef: any;
-    confirmDialogRef: MatDialogRef<FuseConfirmDialogComponent>;
+    confirmDialogRef: MatDialogRef<LambdaConfirmDialogComponent>;
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -164,7 +164,7 @@ export class EmployeesEmployeeListComponent implements OnInit, OnDestroy
      */
     deleteEmployee(employee): void
     {
-        this.confirmDialogRef = this._matDialog.open(FuseConfirmDialogComponent, {
+        this.confirmDialogRef = this._matDialog.open(LambdaConfirmDialogComponent, {
             disableClose: false
         });
 

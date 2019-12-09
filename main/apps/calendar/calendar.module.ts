@@ -7,8 +7,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { CalendarModule as AngularCalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseConfirmDialogModule } from '@fuse/components';
+import { LambdaSharedModule } from '@lambda/shared.module';
+import { LambdaConfirmDialogModule } from '@lambda/components';
 
 import { CalendarComponent } from 'app/main/apps/calendar/calendar.component';
 import { CalendarService } from 'app/main/apps/calendar/calendar.service';
@@ -49,8 +49,8 @@ const routes: Routes = [
         }),
         ColorPickerModule,
 
-        FuseSharedModule,
-        FuseConfirmDialogModule
+        LambdaSharedModule,
+        LambdaConfirmDialogModule
     ],
     providers      : [
         CalendarService

@@ -1,4 +1,4 @@
-import { FuseUtils } from '@fuse/utils';
+import { LambdaUtils } from '@lambda/utils';
 
 export class Card
 {
@@ -24,7 +24,7 @@ export class Card
      */
     constructor(card)
     {
-        this.id = card.id || FuseUtils.generateGUID();
+        this.id = card.id || LambdaUtils.generateGUID();
         this.name = card.name || '';
         this.description = card.description || '';
         this.idAttachmentCover = card.idAttachmentCover || '';

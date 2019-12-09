@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { FuseConfigService } from '@fuse/services/config.service';
-import { fuseAnimations } from '@fuse/animations';
+import { LambdaConfigService } from '@lambda/services/config.service';
+import { lambdaAnimations } from '@lambda/animations';
 
 @Component({
     selector     : 'forgot-password-2',
     templateUrl  : './forgot-password-2.component.html',
     styleUrls    : ['./forgot-password-2.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class ForgotPassword2Component implements OnInit
 {
@@ -18,16 +18,16 @@ export class ForgotPassword2Component implements OnInit
     /**
      * Constructor
      *
-     * @param {FuseConfigService} _fuseConfigService
+     * @param {LambdaConfigService} _lambdaConfigService
      * @param {FormBuilder} _formBuilder
      */
     constructor(
-        private _fuseConfigService: FuseConfigService,
+        private _lambdaConfigService: LambdaConfigService,
         private _formBuilder: FormBuilder
     )
     {
         // Configure the layout
-        this._fuseConfigService.config = {
+        this._lambdaConfigService.config = {
             layout: {
                 navbar   : {
                     hidden: true

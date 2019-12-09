@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
-import {FuseSharedModule} from '@fuse/shared.module';
+import {LambdaSharedModule} from '@lambda/shared.module';
 
 import {InvoiceService} from 'app/main/pages/invoices/invoice.service';
 import {InvoiceModernComponent} from 'app/main/pages/invoices/modern/modern.component';
@@ -24,7 +24,7 @@ const routes = [
     imports: [
         RouterModule.forChild(routes),
 
-        FuseSharedModule,
+        LambdaSharedModule,
         MatButtonModule,
         MatIconModule,
     ],

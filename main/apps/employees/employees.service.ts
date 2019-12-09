@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
-import { FuseUtils } from '@fuse/utils';
+import { LambdaUtils } from '@lambda/utils';
 
 import { Employee } from 'app/main/apps/employees/employee.model';
 
@@ -108,7 +108,7 @@ export class EmployeesService implements Resolve<any>
 
                         if ( this.searchText && this.searchText !== '' )
                         {
-                            this.employees = FuseUtils.filterArrayByString(this.employees, this.searchText);
+                            this.employees = LambdaUtils.filterArrayByString(this.employees, this.searchText);
                         }
 
                         this.employees = this.employees.map(employee => {

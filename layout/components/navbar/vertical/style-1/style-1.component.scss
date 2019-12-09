@@ -1,8 +1,8 @@
-@import "src/@fuse/scss/fuse";
+@import "src/@lambda/scss/lambda";
 
-fuse-sidebar {
+lambda-sidebar {
 
-    &.navbar-fuse-sidebar {
+    &.navbar-lambda-sidebar {
         overflow: hidden;
 
         &.folded:not(.unfolded) {

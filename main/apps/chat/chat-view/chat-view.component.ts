@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { FusePerfectScrollbarDirective } from '@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
+import { LambdaPerfectScrollbarDirective } from '@lambda/directives/lambda-perfect-scrollbar/lambda-perfect-scrollbar.directive';
 
 import { ChatService } from 'app/main/apps/chat/chat.service';
 
@@ -22,8 +22,8 @@ export class ChatViewComponent implements OnInit, OnDestroy, AfterViewInit
     replyInput: any;
     selectedChat: any;
 
-    @ViewChild(FusePerfectScrollbarDirective)
-    directiveScroll: FusePerfectScrollbarDirective;
+    @ViewChild(LambdaPerfectScrollbarDirective)
+    directiveScroll: LambdaPerfectScrollbarDirective;
 
     @ViewChildren('replyInput')
     replyInputField;

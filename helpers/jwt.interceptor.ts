@@ -17,6 +17,7 @@ export class JwtInterceptor implements HttpInterceptor {
                 setHeaders: {
                     Authorization: `Bearer ${this.cookie.get('token')}`
                 },
+              //  withCredentials: true
             });
         }
 

@@ -5,8 +5,8 @@ import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 
-import {FuseSidebarService} from '@fuse/components/sidebar/sidebar.service';
-import {FusePerfectScrollbarDirective} from '@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
+import {LambdaSidebarService} from '@lambda/components/sidebar/sidebar.service';
+import {LambdaPerfectScrollbarDirective} from '@lambda/directives/lambda-perfect-scrollbar/lambda-perfect-scrollbar.directive';
 import {ChatPanelService} from 'app/layout/components/chat-panel/chat-panel.service';
 import io from 'socket.io-client';
 import {MatSnackBar} from '@angular/material';
@@ -38,11 +38,11 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private socket: any;
 
-    @ViewChildren(FusePerfectScrollbarDirective)
-    private _fusePerfectScrollbarDirectives: QueryList<FusePerfectScrollbarDirective>;
+    @ViewChildren(LambdaPerfectScrollbarDirective)
+    private _lambdaPerfectScrollbarDirectives: QueryList<LambdaPerfectScrollbarDirective>;
 
     // Private
-    private _chatViewScrollbar: FusePerfectScrollbarDirective;
+    private _chatViewScrollbar: LambdaPerfectScrollbarDirective;
     private _replyForm: NgForm;
     private _replyInput: ElementRef;
     private _unsubscribeAll: Subject<any>;
@@ -52,13 +52,13 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
      *
      * @param {ChatPanelService} _chatPanelService
      * @param {HttpClient} _httpClient
-     * @param {FuseSidebarService} _fuseSidebarService
+     * @param {LambdaSidebarService} _lambdaSidebarService
      * @param _snackBar
      */
     constructor(
         private _chatPanelService: ChatPanelService,
         private _httpClient: HttpClient,
-        private _fuseSidebarService: FuseSidebarService,
+        private _lambdaSidebarService: LambdaSidebarService,
         private _snackBar: MatSnackBar
     ) {
 
@@ -86,7 +86,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
             this.contacts = this._chatPanelService.contacts;
             this.user = this._chatPanelService.user;
 
-            this.socket = io.connect(environment.socketUrl);
+            this.socket = io.connect('https://lambda-services.kyzin.net/');
 
             this.socket.on('usersConnect', userId => {
                 const contact = this.contacts.find(contact => contact.id === userId);
@@ -116,7 +116,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
 
         });
         // Subscribe to the foldedChanged observable
-        this._fuseSidebarService.getSidebar('chatPanel').foldedChanged
+        this._lambdaSidebarService.getSidebar('chatPanel').foldedChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((folded) => {
                 this.sidebarFolded = folded;
@@ -127,7 +127,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
      * After view init
      */
     ngAfterViewInit(): void {
-        this._chatViewScrollbar = this._fusePerfectScrollbarDirectives.find((directive) => {
+        this._chatViewScrollbar = this._lambdaPerfectScrollbarDirectives.find((directive) => {
             return directive.elementRef.nativeElement.id === 'messages';
         });
     }
@@ -173,21 +173,21 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
      * Fold the temporarily unfolded sidebar back
      */
     foldSidebarTemporarily(): void {
-        this._fuseSidebarService.getSidebar('chatPanel').foldTemporarily();
+        this._lambdaSidebarService.getSidebar('chatPanel').foldTemporarily();
     }
 
     /**
      * Unfold the sidebar temporarily
      */
     unfoldSidebarTemporarily(): void {
-        this._fuseSidebarService.getSidebar('chatPanel').unfoldTemporarily();
+        this._lambdaSidebarService.getSidebar('chatPanel').unfoldTemporarily();
     }
 
     /**
      * Toggle sidebar opened status
      */
     toggleSidebarOpen(): void {
-        this._fuseSidebarService.getSidebar('chatPanel').toggleOpen();
+        this._lambdaSidebarService.getSidebar('chatPanel').toggleOpen();
     }
 
     /**

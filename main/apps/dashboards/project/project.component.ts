@@ -3,17 +3,17 @@ import { DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable } from 'rxjs';
 import * as shape from 'd3-shape';
 
-import { fuseAnimations } from '@fuse/animations';
+import { lambdaAnimations } from '@lambda/animations';
 
 import { ProjectDashboardService } from 'app/main/apps/dashboards/project/project.service';
-import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { LambdaSidebarService } from '@lambda/components/sidebar/sidebar.service';
 
 @Component({
     selector     : 'project-dashboard',
     templateUrl  : './project.component.html',
     styleUrls    : ['./project.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class ProjectDashboardComponent implements OnInit
 {
@@ -32,11 +32,11 @@ export class ProjectDashboardComponent implements OnInit
     /**
      * Constructor
      *
-     * @param {FuseSidebarService} _fuseSidebarService
+     * @param {LambdaSidebarService} _lambdaSidebarService
      * @param {ProjectDashboardService} _projectDashboardService
      */
     constructor(
-        private _fuseSidebarService: FuseSidebarService,
+        private _lambdaSidebarService: LambdaSidebarService,
         private _projectDashboardService: ProjectDashboardService
     )
     {
@@ -169,7 +169,7 @@ export class ProjectDashboardComponent implements OnInit
      */
     toggleSidebar(name): void
     {
-        this._fuseSidebarService.getSidebar(name).toggleOpen();
+        this._lambdaSidebarService.getSidebar(name).toggleOpen();
     }
 }
 

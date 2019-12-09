@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatDialogModule, MatIconModule, MatListModule, MatToolbarModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { KnowledgeBaseService } from 'app/main/pages/knowledge-base/knowledge-base.service';
 import { KnowledgeBaseComponent } from 'app/main/pages/knowledge-base/knowledge-base.component';
@@ -32,7 +32,7 @@ const routes = [
         MatListModule,
         MatToolbarModule,
 
-        FuseSharedModule
+        LambdaSharedModule
     ],
     providers      : [
         KnowledgeBaseService

@@ -12,7 +12,7 @@
 
                 #lock-form {
                     @if ($is-dark) {
-                        background: mat-color($fuse-navy, 600);
+                        background: mat-color($lambda-navy, 600);
                     } @else {
                         background: map-get($background, card);
                     }

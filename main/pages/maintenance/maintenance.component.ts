@@ -1,28 +1,28 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
-import { FuseConfigService } from '@fuse/services/config.service';
-import { fuseAnimations } from '@fuse/animations';
+import { LambdaConfigService } from '@lambda/services/config.service';
+import { lambdaAnimations } from '@lambda/animations';
 
 @Component({
     selector     : 'maintenance',
     templateUrl  : './maintenance.component.html',
     styleUrls    : ['./maintenance.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class MaintenanceComponent
 {
     /**
      * Constructor
      *
-     * @param {FuseConfigService} _fuseConfigService
+     * @param {LambdaConfigService} _lambdaConfigService
      */
     constructor(
-        private _fuseConfigService: FuseConfigService
+        private _lambdaConfigService: LambdaConfigService
     )
     {
         // Configure the layout
-        this._fuseConfigService.config = {
+        this._lambdaConfigService.config = {
             layout: {
                 navbar   : {
                     hidden: true

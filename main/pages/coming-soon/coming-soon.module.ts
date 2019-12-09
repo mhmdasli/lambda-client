@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseCountdownModule } from '@fuse/components';
+import { LambdaSharedModule } from '@lambda/shared.module';
+import { LambdaCountdownModule } from '@lambda/components';
 
 import { ComingSoonComponent } from 'app/main/pages/coming-soon/coming-soon.component';
 
@@ -27,8 +27,8 @@ const routes = [
         MatIconModule,
         MatInputModule,
 
-        FuseSharedModule,
-        FuseCountdownModule
+        LambdaSharedModule,
+        LambdaCountdownModule
     ]
 })
 export class ComingSoonModule

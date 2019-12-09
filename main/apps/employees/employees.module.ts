@@ -14,8 +14,8 @@ import {
     MatToolbarModule
 } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseConfirmDialogModule, FuseSidebarModule } from '@fuse/components';
+import { LambdaSharedModule } from '@lambda/shared.module';
+import { LambdaConfirmDialogModule, LambdaSidebarModule } from '@lambda/components';
 
 import { EmployeesComponent } from 'app/main/apps/employees/employees.component';
 import { EmployeesService } from 'app/main/apps/employees/employees.service';
@@ -56,9 +56,9 @@ const routes: Routes = [
         MatTableModule,
         MatToolbarModule,
 
-        FuseSharedModule,
-        FuseConfirmDialogModule,
-        FuseSidebarModule,
+        LambdaSharedModule,
+        LambdaConfirmDialogModule,
+        LambdaSidebarModule,
         MatTabsModule
     ],
     providers      : [

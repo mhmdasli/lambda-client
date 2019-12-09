@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
+import { lambdaAnimations } from '@lambda/animations';
 import { ProfileService } from 'app/main/pages/profile/profile.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ProfileService } from 'app/main/pages/profile/profile.service';
     templateUrl  : './about.component.html',
     styleUrls    : ['./about.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class ProfileAboutComponent implements OnInit, OnDestroy
 {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRippleModule, MatTabsModule, MatTooltipModule, MatSnackBarModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { ChatPanelComponent } from 'app/layout/components/chat-panel/chat-panel.component';
 import { ChatPanelService } from 'app/layout/components/chat-panel/chat-panel.service';
@@ -23,7 +23,7 @@ import { ChatPanelService } from 'app/layout/components/chat-panel/chat-panel.se
         MatRippleModule,
         MatSnackBarModule,
 
-        FuseSharedModule
+        LambdaSharedModule
     ],
     exports     : [
         ChatPanelComponent

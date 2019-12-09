@@ -5,9 +5,9 @@
     <!-- / TOP BACKGROUND -->
 
     <!-- SIDEBAR -->
-    <fuse-sidebar class="sidebar" name="mail-ngrx-main-sidebar" position="left" lockedOpen="gt-md">
+    <lambda-sidebar class="sidebar" name="mail-ngrx-main-sidebar" position="left" lockedOpen="gt-md">
         <mail-ngrx-main-sidebar></mail-ngrx-main-sidebar>
-    </fuse-sidebar>
+    </lambda-sidebar>
     <!-- / SIDEBAR -->
 
     <!-- CENTER -->
@@ -94,8 +94,8 @@
             <!-- CONTENT -->
             <div class="content" fxLayout="row">
 
-                <mail-ngrx-list fusePerfectScrollbar fxFlex [mails]="mails$ | async" [currentMail]="currentMail$ | async"></mail-ngrx-list>
-                <mail-ngrx-details [currentMail]="currentMail$ | async" fusePerfectScrollbar fxFlex></mail-ngrx-details>
+                <mail-ngrx-list lambdaPerfectScrollbar fxFlex [mails]="mails$ | async" [currentMail]="currentMail$ | async"></mail-ngrx-list>
+                <mail-ngrx-details [currentMail]="currentMail$ | async" lambdaPerfectScrollbar fxFlex></mail-ngrx-details>
 
             </div>
             <!-- / CONTENT -->

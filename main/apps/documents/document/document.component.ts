@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
+import { lambdaAnimations } from '@lambda/animations';
 
 import { DocumentsDocumentsService } from 'app/main/apps/documents/documents.service';
 
@@ -10,7 +10,7 @@ import { DocumentsDocumentsService } from 'app/main/apps/documents/documents.ser
     selector   : 'documents-documents',
     templateUrl: './document.component.html',
     styleUrls  : ['./document.component.scss'],
-    animations : fuseAnimations
+    animations : lambdaAnimations
 })
 export class DocumentsDocumentsComponent implements OnInit, OnDestroy
 {

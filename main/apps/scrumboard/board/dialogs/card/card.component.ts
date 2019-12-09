@@ -3,8 +3,8 @@ import {NgForm} from '@angular/forms/src/forms';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatMenuTrigger, MatSnackBar} from '@angular/material';
 import {Subject} from 'rxjs';
 
-import {FuseConfirmDialogComponent} from '@fuse/components/confirm-dialog/confirm-dialog.component';
-import {FuseUtils} from '@fuse/utils';
+import {LambdaConfirmDialogComponent} from '@lambda/components/confirm-dialog/confirm-dialog.component';
+import {LambdaUtils} from '@lambda/utils';
 
 import {ScrumboardService} from 'app/main/apps/scrumboard/scrumboard.service';
 import {takeUntil} from 'rxjs/operators';
@@ -23,8 +23,8 @@ export class ScrumboardCardDialogComponent implements OnInit, OnDestroy {
     list: any;
     fileToUpload: File = null;
 
-    toggleInArray = FuseUtils.toggleInArray;
-    confirmDialogRef: MatDialogRef<FuseConfirmDialogComponent>;
+    toggleInArray = LambdaUtils.toggleInArray;
+    confirmDialogRef: MatDialogRef<LambdaConfirmDialogComponent>;
 
     @ViewChild('checklistMenuTrigger')
     checklistMenu: MatMenuTrigger;
@@ -217,7 +217,7 @@ export class ScrumboardCardDialogComponent implements OnInit, OnDestroy {
      */
     addChecklist(form: NgForm): void {
         this.card.checklists.push({
-            id: FuseUtils.generateGUID(),
+            id: LambdaUtils.generateGUID(),
             name: form.value.checklistTitle,
             checkItemsChecked: 0,
             checkItems: []
@@ -264,7 +264,7 @@ export class ScrumboardCardDialogComponent implements OnInit, OnDestroy {
      * Remove card
      */
     removeCard(): void {
-        this.confirmDialogRef = this._matDialog.open(FuseConfirmDialogComponent, {
+        this.confirmDialogRef = this._matDialog.open(LambdaConfirmDialogComponent, {
             disableClose: false
         });
 

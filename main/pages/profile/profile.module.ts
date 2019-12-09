@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatDividerModule, MatIconModule, MatTabsModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { ProfileService } from 'app/main/pages/profile/profile.service';
 import { ProfileComponent } from 'app/main/pages/profile/profile.component';
@@ -36,7 +36,7 @@ const routes = [
         MatIconModule,
         MatTabsModule,
 
-        FuseSharedModule
+        LambdaSharedModule
     ],
     providers   : [
         ProfileService

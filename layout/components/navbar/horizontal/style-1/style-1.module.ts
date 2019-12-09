@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule, MatIconModule } from '@angular/material';
 
-import { FuseNavigationModule } from '@fuse/components';
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaNavigationModule } from '@lambda/components';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { NavbarHorizontalStyle1Component } from 'app/layout/components/navbar/horizontal/style-1/style-1.component';
 
@@ -14,8 +14,8 @@ import { NavbarHorizontalStyle1Component } from 'app/layout/components/navbar/ho
         MatButtonModule,
         MatIconModule,
 
-        FuseSharedModule,
-        FuseNavigationModule
+        LambdaSharedModule,
+        LambdaNavigationModule
     ],
     exports     : [
         NavbarHorizontalStyle1Component

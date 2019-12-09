@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
+import { lambdaAnimations } from '@lambda/animations';
 
 import { ChatService } from 'app/main/apps/chat/chat.service';
 
@@ -11,7 +11,7 @@ import { ChatService } from 'app/main/apps/chat/chat.service';
     templateUrl  : './chat.component.html',
     styleUrls    : ['./chat.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class ChatComponent implements OnInit, OnDestroy
 {

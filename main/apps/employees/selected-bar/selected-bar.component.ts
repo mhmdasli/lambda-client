@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { FuseConfirmDialogComponent } from '@fuse/components/confirm-dialog/confirm-dialog.component';
+import { LambdaConfirmDialogComponent } from '@lambda/components/confirm-dialog/confirm-dialog.component';
 
 import { EmployeesService } from 'app/main/apps/employees/employees.service';
 
@@ -14,7 +14,7 @@ import { EmployeesService } from 'app/main/apps/employees/employees.service';
 })
 export class EmployeesSelectedBarComponent implements OnInit, OnDestroy
 {
-    confirmDialogRef: MatDialogRef<FuseConfirmDialogComponent>;
+    confirmDialogRef: MatDialogRef<LambdaConfirmDialogComponent>;
     hasSelectedEmployees: boolean;
     isIndeterminate: boolean;
     selectedEmployees: string[];
@@ -92,7 +92,7 @@ export class EmployeesSelectedBarComponent implements OnInit, OnDestroy
      */
     deleteSelectedEmployees(): void
     {
-        this.confirmDialogRef = this._matDialog.open(FuseConfirmDialogComponent, {
+        this.confirmDialogRef = this._matDialog.open(LambdaConfirmDialogComponent, {
             disableClose: false
         });
 

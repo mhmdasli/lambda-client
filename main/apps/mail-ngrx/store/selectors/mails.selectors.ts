@@ -1,4 +1,4 @@
-import { FuseUtils } from '@fuse/utils';
+import { LambdaUtils } from '@lambda/utils';
 
 import { createSelector } from '@ngrx/store';
 import { getMailAppState, MailAppState, MailsState } from 'app/main/apps/mail-ngrx/store/reducers';
@@ -28,7 +28,7 @@ export const getMailsArr = createSelector(
     getSearchText,
     (entities, searchText) => {
         const arr = Object.keys(entities).map((id) => entities[id]);
-        return FuseUtils.filterArrayByString(arr, searchText);
+        return LambdaUtils.filterArrayByString(arr, searchText);
     }
 );
 

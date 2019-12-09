@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatDividerModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { PricingStyle1Component } from 'app/main/pages/pricing/style-1/style-1.component';
 import { PricingStyle2Component } from 'app/main/pages/pricing/style-2/style-2.component';
@@ -35,7 +35,7 @@ const routes = [
         MatButtonModule,
         MatDividerModule,
 
-        FuseSharedModule
+        LambdaSharedModule
     ]
 })
 export class PricingModule

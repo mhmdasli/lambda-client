@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule, MatDividerModule, MatFormFieldModule, MatIconModule, MatMenuModule, MatSelectModule, MatTableModule, MatTabsModule } from '@angular/material';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseSidebarModule } from '@fuse/components';
-import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
+import { LambdaSidebarModule } from '@lambda/components';
+import { LambdaWidgetModule } from '@lambda/components/widget/widget.module';
 
 import { ProjectDashboardComponent } from 'app/main/apps/dashboards/project/project.component';
 import { ProjectDashboardService } from 'app/main/apps/dashboards/project/project.service';
@@ -37,9 +37,9 @@ const routes: Routes = [
 
         NgxChartsModule,
 
-        FuseSharedModule,
-        FuseSidebarModule,
-        FuseWidgetModule,
+        LambdaSharedModule,
+        LambdaSidebarModule,
+        LambdaWidgetModule,
     ],
     providers   : [
         ProjectDashboardService

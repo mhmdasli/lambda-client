@@ -2,8 +2,8 @@ import {defineInjectable, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 
-import {FuseSearchBarModule, FuseShortcutsModule} from '@fuse/components';
-import {FuseSharedModule} from '@fuse/shared.module';
+import {LambdaSearchBarModule, LambdaShortcutsModule} from '@lambda/components';
+import {LambdaSharedModule} from '@lambda/shared.module';
 
 import {ToolbarComponent} from 'app/layout/components/toolbar/toolbar.component';
 import {AccessDialogComponent} from './access-dialog/access-dialog.component';
@@ -23,9 +23,9 @@ import {AmazingTimePickerModule} from 'amazing-time-picker';
         MatMenuModule,
         MatToolbarModule,
 
-        FuseSharedModule,
-        FuseSearchBarModule,
-        FuseShortcutsModule,
+        LambdaSharedModule,
+        LambdaSearchBarModule,
+        LambdaShortcutsModule,
         MatDialogModule,
         MatInputModule,
     ],

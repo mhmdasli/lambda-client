@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
+import { lambdaAnimations } from '@lambda/animations';
 
 import { ScrumboardService } from 'app/main/apps/scrumboard/scrumboard.service';
 import { Board } from 'app/main/apps/scrumboard/board.model';
@@ -13,7 +13,7 @@ import { Board } from 'app/main/apps/scrumboard/board.model';
     templateUrl  : './scrumboard.component.html',
     styleUrls    : ['./scrumboard.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class ScrumboardComponent implements OnInit, OnDestroy
 {

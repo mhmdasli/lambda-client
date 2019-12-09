@@ -1,4 +1,4 @@
-import { FuseUtils } from '@fuse/utils';
+import { LambdaUtils } from '@lambda/utils';
 
 export class Employee
 {
@@ -23,7 +23,7 @@ export class Employee
     constructor(employee)
     {
         {
-            this.id = employee.id || FuseUtils.generateGUID();
+            this.id = employee.id || LambdaUtils.generateGUID();
             this.name = employee.name || '';
             this.lastName = employee.lastName || '';
             this.avatar = employee.avatar || 'assets/images/avatars/profile.jpg';

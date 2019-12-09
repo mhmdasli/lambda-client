@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewEncapsul
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
-import { FuseUtils } from '@fuse/utils';
+import { lambdaAnimations } from '@lambda/animations';
+import { LambdaUtils } from '@lambda/utils';
 
 import { ScrumboardService } from 'app/main/apps/scrumboard/scrumboard.service';
 
@@ -12,7 +12,7 @@ import { ScrumboardService } from 'app/main/apps/scrumboard/scrumboard.service';
     templateUrl  : './label-selector.component.html',
     styleUrls    : ['./label-selector.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 
 export class ScrumboardLabelSelectorComponent implements OnInit, OnDestroy
@@ -49,7 +49,7 @@ export class ScrumboardLabelSelectorComponent implements OnInit, OnDestroy
             'name' : '',
             'color': 'blue-400'
         };
-        this.toggleInArray = FuseUtils.toggleInArray;
+        this.toggleInArray = LambdaUtils.toggleInArray;
 
         // Set the private defaults
         this._unsubscribeAll = new Subject();
@@ -106,7 +106,7 @@ export class ScrumboardLabelSelectorComponent implements OnInit, OnDestroy
      */
     addNewLabel(): void
     {
-        this.newLabel.id = FuseUtils.generateGUID();
+        this.newLabel.id = LambdaUtils.generateGUID();
         this.board.labels.push(Object.assign({}, this.newLabel));
         this.newLabel.name = '';
         this.labelsMenuView = 'labels';

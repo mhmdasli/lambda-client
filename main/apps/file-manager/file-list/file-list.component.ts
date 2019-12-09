@@ -3,8 +3,8 @@ import { DataSource } from '@angular/cdk/collections';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
-import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { lambdaAnimations } from '@lambda/animations';
+import { LambdaSidebarService } from '@lambda/components/sidebar/sidebar.service';
 
 import { FileManagerService } from 'app/main/apps/file-manager/file-manager.service';
 
@@ -13,7 +13,7 @@ import { FileManagerService } from 'app/main/apps/file-manager/file-manager.serv
     templateUrl  : './file-list.component.html',
     styleUrls    : ['./file-list.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class FileManagerFileListComponent implements OnInit, OnDestroy
 {
@@ -29,11 +29,11 @@ export class FileManagerFileListComponent implements OnInit, OnDestroy
      * Constructor
      *
      * @param {FileManagerService} _fileManagerService
-     * @param {FuseSidebarService} _fuseSidebarService
+     * @param {LambdaSidebarService} _lambdaSidebarService
      */
     constructor(
         private _fileManagerService: FileManagerService,
-        private _fuseSidebarService: FuseSidebarService
+        private _lambdaSidebarService: LambdaSidebarService
     )
     {
         // Set the private defaults
@@ -95,7 +95,7 @@ export class FileManagerFileListComponent implements OnInit, OnDestroy
      */
     toggleSidebar(name): void
     {
-        this._fuseSidebarService.getSidebar(name).toggleOpen();
+        this._lambdaSidebarService.getSidebar(name).toggleOpen();
     }
 }
 

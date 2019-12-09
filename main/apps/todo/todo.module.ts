@@ -5,8 +5,8 @@ import {
 } from '@angular/material';
 import { NgxDnDModule } from '@swimlane/ngx-dnd';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseSidebarModule } from '@fuse/components';
+import { LambdaSharedModule } from '@lambda/shared.module';
+import { LambdaSidebarModule } from '@lambda/components';
 
 import { TodoService } from 'app/main/apps/todo/todo.service';
 import { TodoComponent } from 'app/main/apps/todo/todo.component';
@@ -87,8 +87,8 @@ const routes: Routes = [
 
         NgxDnDModule,
 
-        FuseSharedModule,
-        FuseSidebarModule
+        LambdaSharedModule,
+        LambdaSidebarModule
     ],
     providers   : [
         TodoService

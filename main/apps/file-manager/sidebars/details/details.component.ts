@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
+import { lambdaAnimations } from '@lambda/animations';
 
 import { FileManagerService } from 'app/main/apps/file-manager/file-manager.service';
 
@@ -10,7 +10,7 @@ import { FileManagerService } from 'app/main/apps/file-manager/file-manager.serv
     selector   : 'file-manager-details-sidebar',
     templateUrl: './details.component.html',
     styleUrls  : ['./details.component.scss'],
-    animations : fuseAnimations
+    animations : lambdaAnimations
 })
 export class FileManagerDetailsSidebarComponent implements OnInit, OnDestroy
 {

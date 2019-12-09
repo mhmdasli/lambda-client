@@ -3,11 +3,11 @@ import { RouterModule } from '@angular/router';
 
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { LambdaSharedModule } from '@lambda/shared.module';
 
 import { DocumentsDocumentsComponent } from 'app/main/apps/documents/document/document.component';
 import { DocumentsDocumentsService } from 'app/main/apps/documents/documents.service';
-import { FuseSidebarModule } from '@fuse/components';
+import { LambdaSidebarModule } from '@lambda/components';
 import { FireComponent } from './fire/fire.component';
 
 const routes = [
@@ -38,8 +38,8 @@ const routes = [
         MatInputModule,
         MatSelectModule,
 
-        FuseSharedModule,
-        FuseSidebarModule
+        LambdaSharedModule,
+        LambdaSidebarModule
     ],
     providers   : [
         DocumentsDocumentsService,

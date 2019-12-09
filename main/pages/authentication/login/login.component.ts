@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-import {FuseConfigService} from '@fuse/services/config.service';
-import {fuseAnimations} from '@fuse/animations';
+import {LambdaConfigService} from '@lambda/services/config.service';
+import {lambdaAnimations} from '@lambda/animations';
 import {AuthService} from '../../../../auth.service';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
@@ -12,7 +12,7 @@ import {MatSnackBar} from '@angular/material';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations: fuseAnimations
+    animations: lambdaAnimations
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
@@ -20,21 +20,21 @@ export class LoginComponent implements OnInit {
     /**
      * Constructor
      *
-     * @param {FuseConfigService} _fuseConfigService
+     * @param {LambdaConfigService} _lambdaConfigService
      * @param {FormBuilder} _formBuilder
      * @param auth
      * @param router
      * @param _snackBar
      */
     constructor(
-        private _fuseConfigService: FuseConfigService,
+        private _lambdaConfigService: LambdaConfigService,
         private _formBuilder: FormBuilder,
         private auth: AuthService,
         private router: Router,
         private _snackBar: MatSnackBar,
     ) {
         // Configure the layout
-        this._fuseConfigService.config = {
+        this._lambdaConfigService.config = {
             layout: {
                 navbar: {
                     hidden: true

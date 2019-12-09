@@ -3,15 +3,15 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { FuseConfigService } from '@fuse/services/config.service';
-import { fuseAnimations } from '@fuse/animations';
+import { LambdaConfigService } from '@lambda/services/config.service';
+import { lambdaAnimations } from '@lambda/animations';
 
 @Component({
     selector     : 'reset-password',
     templateUrl  : './reset-password.component.html',
     styleUrls    : ['./reset-password.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class ResetPasswordComponent implements OnInit, OnDestroy
 {
@@ -21,12 +21,12 @@ export class ResetPasswordComponent implements OnInit, OnDestroy
     private _unsubscribeAll: Subject<any>;
 
     constructor(
-        private _fuseConfigService: FuseConfigService,
+        private _lambdaConfigService: LambdaConfigService,
         private _formBuilder: FormBuilder
     )
     {
         // Configure the layout
-        this._fuseConfigService.config = {
+        this._lambdaConfigService.config = {
             layout: {
                 navbar   : {
                     hidden: true

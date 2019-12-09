@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { fuseAnimations } from '@fuse/animations';
+import { lambdaAnimations } from '@lambda/animations';
 
 import { ProfileService } from 'app/main/pages/profile/profile.service';
 import { takeUntil } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
     templateUrl  : './photos-videos.component.html',
     styleUrls    : ['./photos-videos.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : lambdaAnimations
 })
 export class ProfilePhotosVideosComponent implements OnInit, OnDestroy
 {

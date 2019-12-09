@@ -4,8 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
-import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
-import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
+import { LambdaSidebarService } from '@lambda/components/sidebar/sidebar.service';
+import { LambdaTranslationLoaderService } from '@lambda/services/translation-loader.service';
 
 import { Mail } from 'app/main/apps/mail-ngrx/mail.model';
 import { MailNgrxService } from 'app/main/apps/mail-ngrx/mail.service';
@@ -39,22 +39,22 @@ export class MailNgrxComponent implements OnInit, OnDestroy
      * Constructor
      *
      * @param {ChangeDetectorRef} _changeDetectorRef
-     * @param {FuseSidebarService} _fuseSidebarService
-     * @param {FuseTranslationLoaderService} _fuseTranslationLoaderService
+     * @param {LambdaSidebarService} _lambdaSidebarService
+     * @param {LambdaTranslationLoaderService} _lambdaTranslationLoaderService
      * @param {MailNgrxService} _mailNgrxService
      * @param {Store<MailAppState>} _store
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseSidebarService: FuseSidebarService,
-        private _fuseTranslationLoaderService: FuseTranslationLoaderService,
+        private _lambdaSidebarService: LambdaSidebarService,
+        private _lambdaTranslationLoaderService: LambdaTranslationLoaderService,
         private _mailNgrxService: MailNgrxService,
         private _store: Store<fromStore.MailAppState>
     )
     {
         // Set the defaults
         this.searchInput = new FormControl('');
-        this._fuseTranslationLoaderService.loadTranslations(english, turkish);
+        this._lambdaTranslationLoaderService.loadTranslations(english, turkish);
         this.currentMail$ = this._store.pipe(select(fromStore.getCurrentMail));
         this.mails$ = this._store.pipe(select(fromStore.getMailsArr));
         this.folders$ = this._store.pipe(select(fromStore.getFoldersArr));
@@ -202,6 +202,6 @@ export class MailNgrxComponent implements OnInit, OnDestroy
      */
     toggleSidebar(name): void
     {
-        this._fuseSidebarService.getSidebar(name).toggleOpen();
+        this._lambdaSidebarService.getSidebar(name).toggleOpen();
     }
 }

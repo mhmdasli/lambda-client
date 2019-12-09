@@ -1,4 +1,4 @@
-import { FuseUtils } from '@fuse/utils';
+import { LambdaUtils } from '@lambda/utils';
 
 import { List } from './list.model';
 import { Card } from './card.model';
@@ -36,7 +36,7 @@ export class Board
     {
         this.name = board.name || 'לוח ללא שם';
         this.uri = board.uri || 'לוח ללא שם';
-        this.id = board.id || FuseUtils.generateGUID();
+        this.id = board.id || LambdaUtils.generateGUID();
         this.settings = board.settings || {
             color          : '',
             subscribed     : true,

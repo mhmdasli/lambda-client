@@ -12,5 +12,8 @@ navbar {
         height: 56px;
         max-height: 56px;
         min-height: 56px;
+        bottom: 0;
+        position: absolute;
+        z-index: 9
     }
 }
