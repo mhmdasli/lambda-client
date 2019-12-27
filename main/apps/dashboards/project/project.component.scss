@@ -1,5 +1,10 @@
 #dashboard-project {
-
+     .link-table{
+        @media screen and (min-width: 1367px){
+            padding-right: 120px !important;
+            padding-left: 120px !important;
+        }
+    }
     > .sidebar {
         width: 280px;
         min-width: 280px;

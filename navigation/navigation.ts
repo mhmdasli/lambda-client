@@ -12,28 +12,32 @@ export const navigation: LambdaNavigation[] = [
                 title: 'לקוחות',
                 type: 'item',
                 icon: 'account_box',
-                url: '/apps/contacts'
+                url: '/apps/contacts',
+                openInNewTab: true
             },
             {
                 id: 'employees',
                 title: 'עובדים',
                 type: 'item',
                 icon: 'people',
-                url: '/apps/employees'
+                url: '/apps/employees',
+                openInNewTab: true
             },
             {
                 id: 'scrumboard',
                 title: 'מעקבי משימות',
                 type: 'item',
                 icon: 'assessment',
-                url: '/apps/scrumboard'
+                url: '/apps/scrumboard',
+                openInNewTab: true
             },
             {
                 id: 'calendar',
                 title: 'יומן',
                 type: 'item',
                 icon: 'today',
-                url: '/apps/calendar'
+                url: '/apps/calendar',
+                openInNewTab: true
             },
 
             {
@@ -42,6 +46,7 @@ export const navigation: LambdaNavigation[] = [
                 type: 'item',
                 icon: 'email',
                 url: '/apps/mail-ngrx',
+                openInNewTab: true,
                 badge: {
                     title: '13',
                     bg: '#EC0C8E',
@@ -65,7 +70,8 @@ export const navigation: LambdaNavigation[] = [
                 title: ' קבלת חומר',
                 type: 'item',
                 icon: 'folder',
-                url: '/apps/file-manager'
+                url: '/apps/file-manager',
+                openInNewTab: true
             },
             {
                 id: 'to-do',
@@ -73,6 +79,7 @@ export const navigation: LambdaNavigation[] = [
                 type: 'item',
                 icon: 'check_box',
                 url: '/apps/todo',
+                openInNewTab: true,
                 badge: {
                     title: '3',
                     bg: '#FF6F00',
@@ -82,18 +89,18 @@ export const navigation: LambdaNavigation[] = [
         ]
     },
     {
+        id: 'project',
+        title: 'שולחן העבודה',
+        type: 'item',
+        url: '/apps/dashboards/project',
+        icon: 'supervisor_account',
+    },
+    {
         id: 'analytics',
         title: 'אנליטקה',
         type: 'item',
         url: '/apps/dashboards/analytics',
         icon: 'show_chart',
-    },
-    {
-        id: 'project',
-        title: 'ניהול משרדי ',
-        type: 'item',
-        url: '/apps/dashboards/project',
-        icon: 'supervisor_account',
     },
     {
         id: 'documents',

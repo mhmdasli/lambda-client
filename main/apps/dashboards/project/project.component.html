@@ -40,7 +40,147 @@
         <div class="content">
 
             <mat-tab-group dynamicHeight>
+                <mat-tab label=" אפליקציות">
 
+                    <!-- WIDGET GROUP -->
+                    <div id="" class="page-layout simple fullwidth ">
+
+                        <!-- CONTENT -->
+                        <div class="content" fxLayout="row">
+
+                            <!-- PRICE TABLES -->
+                            <div style="padding: 50px" class="price-tables link-table" fxLayout="row wrap" fxLayoutAlign="center center">
+
+                                <div style="width: 200px;height: 240px" class="price-table style-1 mat-elevation-z4" fxLayout="column">
+                                    <a class="nav-link ng-star-inserted" target="_blank" href="/apps/contacts">
+
+                                        <div style="display: contents !important;padding: 0 !important;" class="price">
+
+                                            <mat-icon style="font-size: 197px;color: lightskyblue"
+                                                class="nav-link-icon mat-icon material-icons ng-star-inserted"
+                                                role="img" aria-hidden="true">account_box
+                                            </mat-icon>
+
+                                        </div>
+
+                                        <div class="package-type primary text-center">
+                                            <span>לקוחות</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div style="width: 200px;height: 240px" class="price-table style-1 mat-elevation-z4" fxLayout="column">
+                                    <a class="nav-link ng-star-inserted" target="_blank" href="/apps/employees">
+
+                                        <div style="display: contents !important;padding: 0 !important;" class="price">
+
+                                            <mat-icon style="font-size: 197px;color: coral"
+                                                class="nav-link-icon mat-icon material-icons ng-star-inserted"
+                                                role="img" aria-hidden="true">people
+                                            </mat-icon>
+
+                                        </div>
+
+                                        <div class="package-type warn text-center">
+                                            <span>עובדים</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div style="width: 200px;height: 240px" class="price-table style-1 mat-elevation-z4" fxLayout="column">
+                                    <a class="nav-link ng-star-inserted" target="_blank" href="/apps/scrumboard">
+
+                                        <div style="display: contents !important;padding: 0 !important;" class="price">
+
+                                            <mat-icon style="font-size: 197px;color: lightskyblue"
+                                                      class="nav-link-icon mat-icon material-icons ng-star-inserted"
+                                                      role="img" aria-hidden="true">assessment
+                                            </mat-icon>
+
+                                        </div>
+
+                                        <div class="package-type primary text-center">
+                                            <span>מעקבי משימות</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div style="width: 200px;height: 240px" class="price-table style-1 mat-elevation-z4" fxLayout="column">
+                                    <a class="nav-link ng-star-inserted" target="_blank" href="/apps/calendar">
+
+                                        <div style="display: contents !important;padding: 0 !important;" class="price">
+
+                                            <mat-icon style="font-size: 197px;color: coral"
+                                                      class="nav-link-icon mat-icon material-icons ng-star-inserted"
+                                                      role="img" aria-hidden="true">today
+                                            </mat-icon>
+
+                                        </div>
+
+                                        <div class="package-type warn text-center">
+                                            <span>יומן</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div style="width: 200px;height: 240px" class="price-table style-1 mat-elevation-z4" fxLayout="column">
+                                    <a class="nav-link ng-star-inserted" target="_blank" href="/apps/mail-ngrx">
+
+                                        <div style="display: contents !important;padding: 0 !important;" class="price">
+
+                                            <mat-icon style="font-size: 197px;color: lightskyblue"
+                                                      class="nav-link-icon mat-icon material-icons ng-star-inserted"
+                                                      role="img" aria-hidden="true">email
+                                            </mat-icon>
+
+                                        </div>
+
+                                        <div class="package-type primary text-center">
+                                            <span>דואר אלקטרוני</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div style="width: 200px;height: 240px" class="price-table style-1 mat-elevation-z4" fxLayout="column">
+                                    <a class="nav-link ng-star-inserted" target="_blank" href="/apps/file-manager">
+
+                                        <div style="display: contents !important;padding: 0 !important;" class="price">
+
+                                            <mat-icon style="font-size: 197px;color: coral"
+                                                      class="nav-link-icon mat-icon material-icons ng-star-inserted"
+                                                      role="img" aria-hidden="true">folder
+                                            </mat-icon>
+
+                                        </div>
+
+                                        <div class="package-type warn text-center">
+                                            <span> קבלת חומר</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div style="width: 200px;height: 240px" class="price-table style-1 mat-elevation-z4" fxLayout="column">
+                                    <a class="nav-link ng-star-inserted" target="_blank" href="/apps/todo">
+
+                                        <div style="display: contents !important;padding: 0 !important;" class="price">
+
+                                            <mat-icon style="font-size: 197px;color: lightskyblue"
+                                                      class="nav-link-icon mat-icon material-icons ng-star-inserted"
+                                                      role="img" aria-hidden="true">check_box
+                                            </mat-icon>
+
+                                        </div>
+
+                                        <div class="package-type primary text-center">
+                                            <span>משימות אישיות</span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- / WIDGET GROUP -->
+
+                </mat-tab>
                 <mat-tab label="כללי">
 
                     <div class="widget-group p-12" fxLayout="row wrap" fxFlex="100" *lambdaIfOnDom
@@ -48,7 +188,7 @@
 
                         <!-- WIDGET 1 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
-                                     fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
+                                       fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -106,7 +246,7 @@
 
                         <!-- WIDGET 2 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
-                                     fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
+                                       fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -155,7 +295,7 @@
 
                         <!-- WIDGET 3 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
-                                     fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
+                                       fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -204,7 +344,7 @@
 
                         <!-- WIDGET 4 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
-                                     fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
+                                       fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -253,7 +393,7 @@
 
                         <!-- WIDGET 5 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" fxLayout="row" fxFlex="100"
-                                     class="widget widget5">
+                                       class="widget widget5">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -332,7 +472,7 @@
 
                         <!-- WIDGET 6 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
-                                     fxFlex="100" fxFlex.gt-sm="50">
+                                       fxFlex="100" fxFlex.gt-sm="50">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -392,7 +532,7 @@
 
                         <!-- WIDGET 7 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
-                                     fxFlex="100" fxFlex.gt-sm="50">
+                                       fxFlex="100" fxFlex.gt-sm="50">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -445,7 +585,7 @@
 
                         <!-- WIDGET 8 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
-                                     fxFlex="100" fxFlex.gt-sm="50">
+                                       fxFlex="100" fxFlex.gt-sm="50">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -477,7 +617,7 @@
 
                         <!-- WIDGET 9 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
-                                     fxFlex="100" fxFlex.gt-sm="50">
+                                       fxFlex="100" fxFlex.gt-sm="50">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -594,7 +734,7 @@
 
                         <!-- WIDGET 10 -->
                         <lambda-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row"
-                                     fxFlex="100">
+                                       fxFlex="100">
 
                             <!-- Front -->
                             <div class="lambda-widget-front">
@@ -607,23 +747,23 @@
                                     <table class="simple">
 
                                         <thead>
-                                            <tr>
-                                                <th *ngFor="let column of widgets.widget10.table.columns">
-                                                    {{column.title}}
-                                                </th>
-                                            </tr>
+                                        <tr>
+                                            <th *ngFor="let column of widgets.widget10.table.columns">
+                                                {{column.title}}
+                                            </th>
+                                        </tr>
                                         </thead>
 
                                         <tbody>
-                                            <tr *ngFor="let row of widgets.widget10.table.rows">
-                                                <td *ngFor="let cell of row">
+                                        <tr *ngFor="let row of widgets.widget10.table.rows">
+                                            <td *ngFor="let cell of row">
                                                     <span class="p-4" [ngClass]="cell.classes">
                                                         {{cell.value}}
                                                     </span>
-                                                    <mat-icon *ngIf="cell.icon" class="s-16">{{cell.icon}}
-                                                    </mat-icon>
-                                                </td>
-                                            </tr>
+                                                <mat-icon *ngIf="cell.icon" class="s-16">{{cell.icon}}
+                                                </mat-icon>
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -651,7 +791,8 @@
 
                                 <div class="h1 pt-12">שירותים ומחירים</div>
                                 <div class="h3">
-                                    הוספת החבילות והתמחורים המסופקים על ידי המשרד מוסיפה אופציה למעקבים אחרי לקוחות וחישובי הכנסות/הוצאות
+                                    הוספת החבילות והתמחורים המסופקים על ידי המשרד מוסיפה אופציה למעקבים אחרי לקוחות
+                                    וחישובי הכנסות/הוצאות
                                 </div>
 
                             </div>
@@ -694,7 +835,8 @@
 
                                 <div class="price-table style-1 mat-elevation-z12" fxLayout="column">
 
-                                    <div class="package-type primary" fxLayout="row" fxLayoutAlign="space-between center">
+                                    <div class="package-type primary" fxLayout="row"
+                                         fxLayoutAlign="space-between center">
                                         <span>ניהול חשבונות</span>
                                     </div>
 
@@ -742,7 +884,7 @@
                                         </div>
                                     </div>
 
-                                    <button mat-raised-button class="cta-button" color="accent">עדכן </button>
+                                    <button mat-raised-button class="cta-button" color="accent">עדכן</button>
 
                                 </div>
 

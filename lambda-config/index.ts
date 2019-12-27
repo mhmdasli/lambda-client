@@ -10,7 +10,7 @@ import {LambdaConfig} from '@lambda/types';
 
 export const lambdaConfig: LambdaConfig = {
     // Color themes can be defined in src/app/app.theme.scss
-    colorTheme: 'theme-default',
+    colorTheme: 'theme-blue-gray-dark',
     customScrollbars: false,
     layout: {
         style: 'horizontal-layout-1',

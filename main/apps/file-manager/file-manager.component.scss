@@ -1,5 +1,11 @@
 @import "src/@lambda/scss/lambda";
-
+navbar.horizontal-style-1,toolbar,lambda-sidebar.chat-panel,[_nghost-c0] .theme-options-button[_ngcontent-c0]{
+    display: none;
+}
+horizontal-layout-1 #main{
+    padding-left: 0 !important;
+    padding-bottom: 0 !important;
+}
 #file-manager {
 
     .sidebar {
